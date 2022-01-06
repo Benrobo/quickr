@@ -1,0 +1,20 @@
+:root{
+    --dark:#202020;
+    --dark-m:#333333;
+    --green:#00ff5d;
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+}
