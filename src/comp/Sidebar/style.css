@@ -1,0 +1,27 @@
+.sidebar-cont {
+  width: 40%;
+  max-width: 300px;
+  height: 100vh;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  background: var(--dark);
+  /* overflow-y: scroll; */
+}
+
+.sidebar-cont .top-head {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-bottom: 3px solid var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--green);
+  font-size: 25px;
+}
+
+.sidebar-cont .top-head .logo {
+  font-size: 30px;
+  margin-right: 10px;
+}

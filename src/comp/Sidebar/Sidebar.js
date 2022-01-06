@@ -1,6 +1,6 @@
 import React from "react";
-import { HiDocumentDuplicate } from "react-icons/hi";
-
+import { HiDocumentDuplicate, HiUpload } from "react-icons/hi";
+import { Step1, Step2, Step3 } from "../FormSteps";
 import "./style.css";
 
 function Sidebar() {
@@ -11,16 +11,7 @@ function Sidebar() {
         <span>ResumeBuilder</span>
       </div>
       <br />
-      <Form1 />
-    </div>
-  );
-}
-
-function Form1() {
-  return (
-    <div className="form-cont step1">
-      <h3>Generate Your Resume</h3>
-      <br />
+      <Step1 />
     </div>
   );
 }

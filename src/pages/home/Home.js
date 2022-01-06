@@ -4,9 +4,8 @@ import Sidebar from "../../comp/Sidebar/Sidebar";
 
 function Home() {
   return (
-    <div className="container-fluid">
+    <div className="cont">
       <Sidebar />
-
       <Preview />
     </div>
   );
