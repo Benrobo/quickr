@@ -30,7 +30,7 @@ function Sidebar() {
       {/* <ProSkills /> */}
       {/* <PersonalSkills /> */}
       {/* <SocialLinks /> */}
-      <SidebarStyles />
+      {/* <SidebarStyles /> */}
     </div>
   );
 }

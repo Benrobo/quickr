@@ -12,6 +12,9 @@
   left: 0px;
   background: var(--dark);
   overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   /* overflow-y: hidden; */
 }
 

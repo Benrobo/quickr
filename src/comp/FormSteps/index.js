@@ -370,7 +370,8 @@ export function SidebarStyles() {
             <br />
           </div>
           <div className="action-cont">
-            <button className="btn final-btn">Generate</button>
+            <button className="btn back-btn">Back</button>
+            <button className="btn next-btn">Generate</button>
           </div>
         </div>
       </div>
