@@ -21,7 +21,7 @@ function Sidebar() {
         <HiDocumentDuplicate className="icon logo" />
         <span>ResumeBuilder</span>
       </div>
-      {/* <UserInfo /> */}
+      <UserInfo />
       {/* <Address /> */}
       {/* <WorkExp /> */}
       {/* <Education /> */}

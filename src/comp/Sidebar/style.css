@@ -1,11 +1,11 @@
 :root {
-  --s-wd: 350px;
+  --s-wd: 450px;
   --s-m-wd: 300px;
 }
 
 .sidebar-cont {
   width: var(--s-wd);
-  max-width: var(--s-m-wd);
+  min-width: var(--s-m-wd);
   height: 100vh;
   position: relative;
   top: 0px;
@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* overflow-y: hidden; */
+  overflow-x: hidden;
 }
 
 .sidebar-cont .top-head {
@@ -29,7 +29,7 @@
   justify-content: flex-start;
   color: var(--yel);
   font-size: 25px;
-  position: fixed;
+  position: absolute;
   top: 0px;
   left: 0px;
   background: var(--dark);

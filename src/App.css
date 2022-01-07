@@ -9,7 +9,7 @@
   --yel: #ffd325;
   --yel-m: #d6bd31;
   --grey: #777;
-  --l-grey: #ccc;
+  --l-grey: #e9e9e9;
   --w: #fff;
 }
 
@@ -25,6 +25,7 @@ body {
   left: 0px;
   margin: 0px;
   padding: 0px;
+  background: var(--w);
   overflow-y: hidden;
   font-family: Poppins;
 }
