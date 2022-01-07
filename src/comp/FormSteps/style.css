@@ -4,6 +4,7 @@
   padding: 10px;
   position: relative;
   left: 0px;
+  top: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,7 +44,7 @@
 
 .step-form-cont .info-container .top .upload-box .icon {
   padding: 5px;
-  background: var(--green);
+  background: var(--yel);
   font-size: 35px;
   color: #000;
   border-radius: 50%;
@@ -57,4 +58,101 @@
   transform: scale(0.95);
   transition: 0.2s ease;
   opacity: 1;
+}
+
+.step-form-cont .info-container .bottom-cont {
+  width: 100%;
+  height: auto;
+  position: relative;
+  padding: 12px;
+}
+
+.step-form-cont .info-container .bottom-cont .box .join-cont {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.step-form-cont .info-container .bottom-cont .box .join-cont .phonetype {
+  width: 100px;
+  background: var(--dark-m);
+  border: none;
+  outline: none;
+  color: var(--w);
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.step-form-cont .info-container .bottom-cont .box .join-cont .phonetype:focus {
+  border: none;
+  outline: none;
+}
+
+.step-form-cont .info-container .bottom-cont .box .join-cont .inp {
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.step-form-cont .info-container .bottom-cont .inp {
+  border: none;
+  background: var(--dark-m);
+  outline: none;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 30px;
+}
+
+.step-form-cont .info-container .bottom-cont .inp:focus {
+  border: 2px solid var(--yel);
+  outline: none;
+}
+
+.step-form-cont .info-container .bottom-cont .box .addbtn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  border: 3px solid var(--yel-m);
+  background: var(--dark);
+  color: var(--w);
+  opacity: 0.7;
+  transition: 0.2s ease;
+}
+
+.step-form-cont .info-container .bottom-cont .box .addbtn:hover {
+  opacity: 1;
+  transition: 0.2s ease;
+}
+
+.step-form-cont .info-container .bottom-cont .action-cont {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.step-form-cont .info-container .bottom-cont .action-cont .btn {
+  border-radius: 30px;
+  transition: 0.2s ease;
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+}
+
+.step-form-cont .info-container .bottom-cont .action-cont .btn:hover {
+  opacity: 0.8;
+  transition: 0.2s ease;
+}
+
+.step-form-cont .info-container .bottom-cont .action-cont .next-btn {
+  background: var(--yel);
+  color: var(--dark);
+}
+
+.step-form-cont .info-container .bottom-cont .action-cont .back-btn {
+  background: var(--dark-m);
+  color: var(--w);
 }

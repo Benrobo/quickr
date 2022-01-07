@@ -1,6 +1,6 @@
 import React from "react";
 import { HiDocumentDuplicate, HiUpload } from "react-icons/hi";
-import { Step1, Step2, Step3 } from "../FormSteps";
+import { UserInfo, Address, Step3 } from "../FormSteps";
 import "./style.css";
 
 function Sidebar() {
@@ -10,8 +10,8 @@ function Sidebar() {
         <HiDocumentDuplicate className="icon logo" />
         <span>ResumeBuilder</span>
       </div>
-      <br />
-      <Step1 />
+      {/* <UserInfo /> */}
+      <Address />
     </div>
   );
 }

@@ -3,10 +3,9 @@ import { HiUpload, HiChevronDown } from "react-icons/hi";
 
 import "./style.css";
 
-export function Step1() {
+export function UserInfo() {
   return (
     <div className="step-form-cont step1">
-      <h3>Generate Your Resume</h3>
       <br />
       <div className="info-container">
         <div className="top">
@@ -24,47 +23,71 @@ export function Step1() {
         <div className="bottom-cont">
           <div className="box box-1">
             <h3>User Info</h3>
-            <br />
             <input
               type="text"
               placeholder="First and Lastname"
               maxLength={20}
-              className="inp"
+              className="inp form-control"
             />
             <input
               type="text"
               placeholder="Job Type"
               maxLength={20}
-              className="inp"
+              className="inp form-control"
             />
+            <button className="btn addbtn">Add Info</button>
           </div>
-          <div className="box box-1">
-            <h3>Address</h3>
-            <br />
-            <div className="join-cont">
-              <select className="phonetype">
-                <option value="+234">+234</option>
-              </select>
-              <input type="number" placeholder="Phonenumber" className="inp" />
-            </div>
-            <input type="email" placeholder="Email" className="inp" />
-            <input
-              type="text"
-              placeholder="Full Address"
-              maxLength={50}
-              className="inp"
-            />
-            <br />
-            <button className="btn">Continue</button>
+          <div className="action-cont">
+            <button className="btn next-btn">Continue</button>
           </div>
+          <br />
         </div>
       </div>
     </div>
   );
 }
 
-export function Step2() {
-  return <div className="step-form-cont step2">Step2</div>;
+export function Address() {
+  return (
+    <div className="step-form-cont step1">
+      <br />
+      <div className="info-container address">
+        <div className="bottom-cont">
+          <div className="box box-1">
+            <h3>Address</h3>
+            <br />
+            <div className="join-cont">
+              <select className="phonetype form-controls">
+                <option value="+234">+234</option>
+              </select>
+              <input
+                type="number"
+                placeholder="Phonenumber"
+                className="inp form-control"
+              />
+            </div>
+            <input
+              type="email"
+              placeholder="Email"
+              className="inp form-control"
+            />
+            <input
+              type="text"
+              placeholder="Full Address"
+              maxLength={50}
+              className="inp form-control"
+            />
+            <br />
+            <button className="btn addbtn">Add Info</button>
+          </div>
+          <div className="action-cont">
+            <button className="btn back-btn">Back</button>
+            <button className="btn next-btn">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export function Step3() {

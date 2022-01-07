@@ -1,7 +1,13 @@
+@font-face {
+  font-family: Poppins;
+  src: url("./poppins.ttf");
+}
+
 :root {
   --dark: #202020;
   --dark-m: #333333;
-  --green: #00ff5d;
+  --yel: #ffd325;
+  --yel-m: #d6bd31;
   --grey: #777;
   --l-grey: #ccc;
   --w: #fff;
@@ -20,4 +26,5 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-y: hidden;
+  font-family: Poppins;
 }
