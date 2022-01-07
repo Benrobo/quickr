@@ -1,6 +1,17 @@
 import React from "react";
 import { HiDocumentDuplicate, HiUpload } from "react-icons/hi";
-import { UserInfo, Address, Step3 } from "../FormSteps";
+import {
+  UserInfo,
+  Address,
+  WorkExp,
+  Education,
+  Hobbies,
+  Quotes,
+  ProSkills,
+  PersonalSkills,
+  SocialLinks,
+  SidebarStyles,
+} from "../FormSteps";
 import "./style.css";
 
 function Sidebar() {
@@ -11,7 +22,15 @@ function Sidebar() {
         <span>ResumeBuilder</span>
       </div>
       {/* <UserInfo /> */}
-      <Address />
+      {/* <Address /> */}
+      {/* <WorkExp /> */}
+      {/* <Education /> */}
+      {/* <Hobbies /> */}
+      {/* <Quotes /> */}
+      {/* <ProSkills /> */}
+      {/* <PersonalSkills /> */}
+      {/* <SocialLinks /> */}
+      <SidebarStyles />
     </div>
   );
 }
