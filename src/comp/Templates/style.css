@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  /* transform: scale(1); */
+  transform: scale(1);
   transition: .2s ease;
 }
 
