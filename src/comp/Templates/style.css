@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  transform: scale(1.1);
+  /* transform: scale(1); */
   transition: .2s ease;
 }
 
@@ -440,6 +440,37 @@
 .template-view .right-cont .socials .list li a{
   font-size: 12px;
   color: var(--yel-m);
+}
+
+.zoom-cont{
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+  transform: scale(.85);
+  transition: .2s ease;
+  cursor: pointer;
+}
+
+.zoom-cont .icon{
+  font-size: 40px;
+  padding: 5px;
+  background: var(--w);
+  box-shadow: 0px 0px 3px var(--grey);
+  overflow: hidden;
+}
+
+.zoom-cont .icon:hover{
+  background: var(--l-grey);
+}
+
+.zoom-cont:hover{
+  transform: scale(.95);
+  transition: .2s ease;
 }
 
 .space{

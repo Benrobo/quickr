@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   HiPhone,
   HiMail,
@@ -7,6 +7,8 @@ import {
   HiBadgeCheck,
   HiLightBulb,
   HiGlobeAlt,
+  HiPlusSm,
+  HiMinusSm,
 } from "react-icons/hi";
 
 import ProgressBar from "../ProgressBar/ProgressBar";
@@ -14,6 +16,18 @@ import ProgressBar from "../ProgressBar/ProgressBar";
 import "./style.css";
 
 function Default() {
+  const [scale, setSCale] = useState(1);
+  const [zoomState, setZoomState] = useState("in");
+
+  useEffect(() => {
+    let temp = document.querySelector(".template-view");
+    if (zoomState === "in") {
+      temp.style.transform = `scale(${scale})`;
+    } else {
+      temp.style.transform = `scale(${scale})`;
+    }
+  }, [scale]);
+
   return (
     <>
       <div className="template-view mt-5">
@@ -150,7 +164,7 @@ function Default() {
                 return (
                   <div className="skills-card" key={i}>
                     <span>Java</span>
-                    <ProgressBar completed={10*i} />
+                    <ProgressBar completed={10 * i} />
                   </div>
                 );
               })}
@@ -162,13 +176,9 @@ function Default() {
               <h5>Personal Skills</h5>
             </div>
             <div className="p-skills-cont">
-              {
-                [1,2,3,4,5,6].map((i)=>{
-                  return (
-                    <span className="skill">Team</span>
-                  )
-                })
-              }
+              {[1, 2, 3, 4, 5, 6].map((i) => {
+                return <span className="skill">Team</span>;
+              })}
             </div>
           </div>
           {/* socials */}
@@ -222,7 +232,40 @@ function Default() {
         </div>
       </div>
       <div className="space"></div>
+      <ZoomControl setSCale={setSCale} setZoomState={setZoomState} />
     </>
+  );
+}
+
+function ZoomControl({ setSCale, setZoomState }) {
+  let [zoomP, setZoomP] = useState(1);
+  let count = -1;
+  let zoomPlus = [1, 2, 3, 4, 5];
+  let zoomNeg = [0.5,0.4,0.3,0.2,0.1];
+
+  useEffect(() => {
+    setSCale(zoomP);
+  }, [zoomP, setZoomP]);
+
+  return (
+    <div className="zoom-cont">
+      <HiPlusSm
+        className="icon"
+        onClick={() => {
+          count > 4 ? (count = 0) : count++;
+          setZoomP(zoomPlus[count]);
+          setZoomState("in");
+        }}
+      />
+      <HiMinusSm
+        className="icon"
+        onClick={() => {
+          count > 4 ? (count = 0) : count++;
+          setZoomP(zoomNeg[count]);
+          setZoomState("out");
+        }}
+      />
+    </div>
   );
 }
 
