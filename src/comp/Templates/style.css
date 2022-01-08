@@ -366,6 +366,8 @@
 .template-view .right-cont .pro-skills-cont h4{
   color: var(--l-grey);
   margin-bottom: 50px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .template-view .right-cont .pro-skills-cont .skills-cont .skills-card{
@@ -377,6 +379,42 @@
   color: var(--l-grey);
   font-size: 12px;
 }
+
+/* Personal Skills */
+.template-view .right-cont .personal-skills{
+  width: 100%;
+  position: relative;
+  top: 20px;
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.template-view .right-cont .personal-skills .head{
+  color: var(--l-grey);
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.template-view .right-cont .personal-skills .p-skills-cont{
+  position: relative;
+  top: 20px;
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.template-view .right-cont .personal-skills .p-skills-cont span{
+  font-size: 10px;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 30px;
+  background: var(--yel-tp);
+  color: var(--yel);
+}
+
 
 .space{
   width: 100%;

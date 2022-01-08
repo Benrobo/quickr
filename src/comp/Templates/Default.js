@@ -161,11 +161,18 @@ function Default() {
             <div className="head">
               <h5>Personal Skills</h5>
             </div>
-            <span className="skill">Team</span>
-            <span className="skill">Creative</span>
+            <div className="p-skills-cont">
+              {
+                [1,2,3,4,5,6].map((i)=>{
+                  return (
+                    <span className="skill">Team</span>
+                  )
+                })
+              }
+            </div>
           </div>
           {/* socials */}
-          <div className="personal-skills">
+          <div className="socials">
             <div className="head">
               <h5>Socials</h5>
             </div>
