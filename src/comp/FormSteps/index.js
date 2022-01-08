@@ -3,7 +3,8 @@ import { HiUpload, HiChevronDown } from "react-icons/hi";
 
 import "./style.css";
 
-export function UserInfo() {
+export function UserInfo({ nextStepFunc }) {
+
   return (
     <div className="step-form-cont step1">
       <br />
@@ -38,7 +39,9 @@ export function UserInfo() {
             <button className="btn addbtn">Add Info</button>
           </div>
           <div className="action-cont">
-            <button className="btn next-btn">Continue</button>
+            <button className="btn next-btn" onClick={nextStepFunc}>
+              Continue
+            </button>
           </div>
           <br />
         </div>
@@ -47,7 +50,7 @@ export function UserInfo() {
   );
 }
 
-export function Address() {
+export function Address({ nextStepFunc, prevStep }) {
   return (
     <div className="step-form-cont step1">
       <br />
@@ -81,8 +84,8 @@ export function Address() {
             <button className="btn addbtn">Add Info</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn">Back</button>
-            <button className="btn next-btn">Next</button>
+            <button className="btn back-btn" onClick={prevStep}>Back</button>
+            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
           </div>
         </div>
       </div>
@@ -90,7 +93,7 @@ export function Address() {
   );
 }
 
-export function WorkExp() {
+export function WorkExp({ nextStepFunc, prevStep }) {
   return (
     <div className="step-form-cont step1">
       <br />
@@ -129,8 +132,8 @@ export function WorkExp() {
             <button className="btn addbtn">Add Experience</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn">Back</button>
-            <button className="btn next-btn">Next</button>
+            <button className="btn back-btn" onClick={prevStep}>Back</button>
+            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
           </div>
         </div>
       </div>
@@ -138,7 +141,7 @@ export function WorkExp() {
   );
 }
 
-export function Education() {
+export function Education({ nextStepFunc, prevStep }) {
   return (
     <div className="step-form-cont step1">
       <br />
@@ -173,8 +176,8 @@ export function Education() {
             <button className="btn addbtn">Add Education</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn">Back</button>
-            <button className="btn next-btn">Next</button>
+            <button className="btn back-btn" onClick={prevStep}>Back</button>
+            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
           </div>
         </div>
       </div>
@@ -182,7 +185,7 @@ export function Education() {
   );
 }
 
-export function Hobbies() {
+export function Hobbies({ nextStepFunc, prevStep }) {
   return (
     <div className="step-form-cont step1">
       <br />
@@ -202,8 +205,8 @@ export function Hobbies() {
             <button className="btn addbtn">Add Hobbies</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn">Back</button>
-            <button className="btn next-btn">Next</button>
+            <button className="btn back-btn" onClick={prevStep}>Back</button>
+            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
           </div>
         </div>
       </div>
@@ -211,7 +214,7 @@ export function Hobbies() {
   );
 }
 
-export function Quotes() {
+export function Quotes({ nextStepFunc, prevStep }) {
   return (
     <div className="step-form-cont step1">
       <br />
@@ -231,8 +234,8 @@ export function Quotes() {
             <button className="btn addbtn">Add Quotes</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn">Back</button>
-            <button className="btn next-btn">Next</button>
+            <button className="btn back-btn" onClick={prevStep}>Back</button>
+            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
           </div>
         </div>
       </div>
@@ -240,7 +243,7 @@ export function Quotes() {
   );
 }
 
-export function ProSkills() {
+export function ProSkills({ nextStepFunc, prevStep }) {
   return (
     <div className="step-form-cont step1">
       <br />
@@ -269,8 +272,8 @@ export function ProSkills() {
             <button className="btn addbtn">Add Pro Skill</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn">Back</button>
-            <button className="btn next-btn">Next</button>
+            <button className="btn back-btn" onClick={prevStep}>Back</button>
+            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
           </div>
         </div>
       </div>
@@ -278,7 +281,7 @@ export function ProSkills() {
   );
 }
 
-export function PersonalSkills() {
+export function PersonalSkills({ nextStepFunc, prevStep }) {
   return (
     <div className="step-form-cont step1">
       <br />
@@ -298,8 +301,8 @@ export function PersonalSkills() {
             <button className="btn addbtn">Add P-Skills</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn">Back</button>
-            <button className="btn next-btn">Next</button>
+            <button className="btn back-btn" onClick={prevStep}>Back</button>
+            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
           </div>
         </div>
       </div>
@@ -307,7 +310,7 @@ export function PersonalSkills() {
   );
 }
 
-export function SocialLinks() {
+export function SocialLinks({ nextStepFunc, prevStep }) {
   return (
     <div className="step-form-cont step1">
       <br />
@@ -344,8 +347,8 @@ export function SocialLinks() {
             <button className="btn addbtn">Add Links</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn">Back</button>
-            <button className="btn next-btn">Next</button>
+            <button className="btn back-btn" onClick={prevStep}>Back</button>
+            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
           </div>
         </div>
       </div>
@@ -353,7 +356,7 @@ export function SocialLinks() {
   );
 }
 
-export function SidebarStyles() {
+export function SidebarStyles({ nextStepFunc, prevStep }) {
   return (
     <div className="step-form-cont step1">
       <br />
@@ -370,8 +373,8 @@ export function SidebarStyles() {
             <br />
           </div>
           <div className="action-cont">
-            <button className="btn back-btn">Back</button>
-            <button className="btn next-btn">Save</button>
+            <button className="btn back-btn" onClick={prevStep}>Back</button>
+            <button className="btn next-btn" onClick={nextStepFunc}>Save</button>
           </div>
         </div>
       </div>

@@ -14,8 +14,9 @@
   overflow-x: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   overflow-x: hidden;
+  flex-direction: column;
 }
 
 .sidebar-cont .top-head {
