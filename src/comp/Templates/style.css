@@ -317,11 +317,65 @@
   height: 100%;
   background: var(--dark);
   display: flex;
-  align-items: center;
-  justify-content:center;
+  align-items: left;
+  justify-content:space-between;
   flex-direction: column;
   padding: 0px;
   margin: 0px;
+  padding: 10px;
+}
+
+/* Quotes Section */
+
+.template-view .right-cont .quotes-cont{
+  width: 100%;
+  position: relative;
+  top: 20px;
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.template-view .right-cont .quotes-cont .icon{
+  font-size: 40px;
+  padding: 5px;
+  background: rgb(255, 211, 37,.4);
+  color: #ffd325;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  
+}
+
+.template-view .right-cont .quotes-cont .body{
+  font-size: 13px;
+  color: var(--l-grey);
+}
+
+
+/* Pro skills */
+.template-view .right-cont .pro-skills-cont{
+  width: 100%;
+  position: relative;
+  top: 20px;
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.template-view .right-cont .pro-skills-cont h4{
+  color: var(--l-grey);
+  margin-bottom: 50px;
+}
+
+.template-view .right-cont .pro-skills-cont .skills-cont .skills-card{
+  width: 100%;
+  height: 50px;
+}
+
+.template-view .right-cont .pro-skills-cont .skills-cont .skills-card span{
+  color: var(--l-grey);
+  font-size: 12px;
 }
 
 .space{

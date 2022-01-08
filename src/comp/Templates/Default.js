@@ -118,15 +118,15 @@ function Default() {
               <HiBriefcase className="icon" />
               <p className="education-exp">Hobbies AND Experience</p>
             </div>
-              <div className="body">
-                <span>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Itaque voluptates laborum laboriosam, blanditiis facere
-                  quibusdam quaerat, quae ab ratione eveniet dolorem quos velit
-                  suscipit odio amet officiis aut expedita quasi!
-                </span>
-              </div>
+            <div className="body">
+              <span>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.? Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Itaque
+                voluptates laborum laboriosam, blanditiis facere quibusdam
+                quaerat, quae ab ratione eveniet dolorem quos velit suscipit
+                odio amet officiis aut expedita quasi!
+              </span>
+            </div>
           </div>
         </div>
         <div className="right-cont">
@@ -146,8 +146,14 @@ function Default() {
             <h4>PRO SKILLS</h4>
             <br />
             <div className="skills-cont">
-              <ProgressBar completed={60} />
-              <ProgressBar completed={20} />
+              {[1, 2, 3, 4].map((i) => {
+                return (
+                  <div className="skills-card" key={i}>
+                    <span>Java</span>
+                    <ProgressBar completed={10*i} />
+                  </div>
+                );
+              })}
             </div>
           </div>
           {/* Personal Skills */}
