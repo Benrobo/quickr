@@ -1,4 +1,44 @@
-.templates-cont {
+.template-view {
+  width: 700px;
+  height: auto;
+  /* min-height: 100vh; */
+  background: var(--l-grey);
+  position: relative;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  transform: scale(1.1);
+  transition: .2s ease;
+}
+
+
+.template-view .left-cont{
+  width: 65%;
+  height: auto;
+  background: var(--l-grey);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 20px;
+  margin: 0px;
+}
+
+.template-view .right-cont{
+  width: 35%;
+  height: 100%;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
+}
+
+.space{
   width: 100%;
-  background: green;
+  height: 20vh;
 }

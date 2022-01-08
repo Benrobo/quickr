@@ -18,8 +18,8 @@ function Home() {
             <HiMenuAlt1 className="icon" />
           </div>
         </div>
-        <div className="templates-cont">
-          <Default />
+        <div className="templates-container">
+          <Default /> 
         </div>
       </div>
     </div>

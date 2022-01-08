@@ -371,7 +371,7 @@ export function SidebarStyles() {
           </div>
           <div className="action-cont">
             <button className="btn back-btn">Back</button>
-            <button className="btn next-btn">Generate</button>
+            <button className="btn next-btn">Save</button>
           </div>
         </div>
       </div>

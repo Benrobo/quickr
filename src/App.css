@@ -27,5 +27,6 @@ body {
   padding: 0px;
   background: var(--w);
   overflow-y: hidden;
+  overflow-x: hidden;
   font-family: Poppins;
 }
