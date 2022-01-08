@@ -6,11 +6,23 @@
 :root {
   --dark: #202020;
   --dark-m: #333333;
+  --dark-m-2: #1d1d1d;
   --yel: #ffd325;
   --yel-m: #d6bd31;
+  --yel-tp: rgb(214, 189, 49,.4);
   --grey: #777;
   --l-grey: #e9e9e9;
   --w: #fff;
+  --w-m:#f7f7f7;
+}
+
+ul{
+  margin: 0px;
+  padding: 0px;
+}
+
+li{
+  list-style:none;
 }
 
 html {

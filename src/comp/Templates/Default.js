@@ -6,7 +6,7 @@ import {
   HiBriefcase,
   HiBadgeCheck,
   HiLightBulb,
-  HiGlobeAlt
+  HiGlobeAlt,
 } from "react-icons/hi";
 
 import ProgressBar from "../ProgressBar/ProgressBar";
@@ -27,7 +27,7 @@ function Default() {
             />
             <div className="info-cont">
               <div className="t">
-                <p className="name">John Doe</p>
+                <h5 className="name">John Doe</h5>
                 <span className="job-type">Designer & Frontend Developer</span>
               </div>
               <div className="b">
@@ -53,7 +53,9 @@ function Default() {
           {/* work exp */}
           <div className="work-exp">
             <div className="head">
-              <HiBriefcase className="icon" />
+              <span>
+                <HiBriefcase className="icon" />
+              </span>
               <p className="work-exp">Work Experience</p>
             </div>
             <br />
@@ -65,7 +67,7 @@ function Default() {
               <div className="r">
                 <div className="t">
                   <h5>HR MANAGER</h5>
-                  <span className="location">LOcation here</span>
+                  <span className="location">Location here</span>
                 </div>
                 <br />
                 <div className="b">
@@ -85,35 +87,45 @@ function Default() {
               <p className="education-exp">Education</p>
             </div>
             <br />
-            <div className="cards-container">
-              <div className="l">
-                <span className="year">2015</span>
-                <HiBadgeCheck className="icon" />
-              </div>
-              <div className="r">
-                <div className="t">
-                  <h5>A.S Business Admin</h5>
+
+            {[1, 2, 3].map((i) => {
+              return (
+                <div className="cards-container">
+                  <div className="l">
+                    <span className="year">2015</span>
+                    <HiBadgeCheck className="icon" />
+                  </div>
+                  <div className="r">
+                    <div className="t">
+                      <h5>A.S Business Admin</h5>
+                    </div>
+                    <br />
+                    <div className="b">
+                      <span>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit.? Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit.
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <br />
-                <div className="b">
-                  <span>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.?
-                  </span>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
           {/* Hobbies */}
-          <div className="education-exp">
+          <div className="hobbies-exp">
             <div className="head">
               <HiBriefcase className="icon" />
               <p className="education-exp">Hobbies AND Experience</p>
             </div>
-            <br />
             <div className="cards-container">
               <div className="body">
                 <span>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Itaque voluptates laborum laboriosam, blanditiis facere
+                  quibusdam quaerat, quae ab ratione eveniet dolorem quos velit
+                  suscipit odio amet officiis aut expedita quasi!
                 </span>
               </div>
             </div>
@@ -156,19 +168,43 @@ function Default() {
             <ul className="list">
               <li>
                 <HiGlobeAlt className="icon" />
-                <a href="http://facebook.com" target="_blank" rel="noopener noreferrer">http://facebook.com</a>
+                <a
+                  href="http://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  http://facebook.com
+                </a>
               </li>
               <li>
                 <HiGlobeAlt className="icon" />
-                <a href="http://twitter.com" target="_blank" rel="noopener noreferrer">http://twitter.com</a>
+                <a
+                  href="http://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  http://twitter.com
+                </a>
               </li>
               <li>
                 <HiGlobeAlt className="icon" />
-                <a href="http://github.com" target="_blank" rel="noopener noreferrer">http://github.com</a>
+                <a
+                  href="http://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  http://github.com
+                </a>
               </li>
               <li>
                 <HiGlobeAlt className="icon" />
-                <a href="http://instagram.com" target="_blank" rel="noopener noreferrer">http://instagram.com</a>
+                <a
+                  href="http://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  http://instagram.com
+                </a>
               </li>
             </ul>
           </div>
@@ -178,6 +214,5 @@ function Default() {
     </>
   );
 }
-
 
 export default Default;
