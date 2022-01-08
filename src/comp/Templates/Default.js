@@ -240,7 +240,7 @@ function Default() {
 function ZoomControl({ setSCale, setZoomState }) {
   let [zoomP, setZoomP] = useState(1);
   let count = -1;
-  let zoomPlus = [1, 2, 3, 4, 5];
+  let zoomPlus = [1.2,1.4,1.6,1.8];
   let zoomNeg = [0.5,0.4,0.3,0.2,0.1];
 
   useEffect(() => {
