@@ -415,6 +415,32 @@
   color: var(--yel);
 }
 
+.template-view .right-cont .socials{
+  width: 100%;
+  position: relative;
+  top: 0px;
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.template-view .right-cont .socials{
+  color: var(--l-grey);
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.template-view .right-cont .socials .list li .icon{
+  color: var(--grey);
+  margin-right: 10px;
+}
+
+.template-view .right-cont .socials .list li a{
+  font-size: 12px;
+  color: var(--yel-m);
+}
 
 .space{
   width: 100%;
