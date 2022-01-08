@@ -113,12 +113,11 @@ function Default() {
             })}
           </div>
           {/* Hobbies */}
-          <div className="hobbies-exp">
+          <div className="hobbies">
             <div className="head">
               <HiBriefcase className="icon" />
               <p className="education-exp">Hobbies AND Experience</p>
             </div>
-            <div className="cards-container">
               <div className="body">
                 <span>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.?
@@ -128,7 +127,6 @@ function Default() {
                   suscipit odio amet officiis aut expedita quasi!
                 </span>
               </div>
-            </div>
           </div>
         </div>
         <div className="right-cont">
