@@ -21,7 +21,7 @@
 
 .sidebar-cont .top-head {
   width: var(--s-wd);
-  max-width: var(--s-m-wd);
+  max-width: 400px;
   height: auto;
   padding: 10px;
   border-bottom: 3px solid var(--yel);
@@ -31,6 +31,7 @@
   color: var(--yel);
   font-size: 25px;
   position: absolute;
+  background: red;
   top: 0px;
   left: 0px;
   background: var(--dark);
@@ -40,4 +41,5 @@
 .sidebar-cont .top-head .logo {
   font-size: 30px;
   margin-right: 10px;
+  width: 50px;
 }

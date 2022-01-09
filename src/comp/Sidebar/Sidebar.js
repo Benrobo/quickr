@@ -12,6 +12,9 @@ import {
   SocialLinks,
   SidebarStyles,
 } from "../FormSteps";
+
+import logo from "../../logo.png"
+
 import "./style.css";
 
 function Sidebar() {
@@ -71,7 +74,8 @@ function Sidebar() {
     <div className="sidebar-cont">
       <div className="top-head">
         <HiDocumentDuplicate className="icon logo" />
-        <span>ResumeBuilder</span>
+        {/* <img src={logo} alt="" className="img-fluid logo" /> */}
+        <span>Quickr</span>
       </div>
 
       {elements}
