@@ -13,7 +13,7 @@ import {
   SidebarStyles,
 } from "../FormSteps";
 
-import logo from "../../logo.png"
+import logo from "../../logo.png";
 
 import "./style.css";
 
@@ -38,26 +38,30 @@ function Sidebar() {
       elements = <UserInfo nextStepFunc={nextStep} prevStep={prevStep} />;
       break;
 
-    case 2:
+    case 3:
+      elements = <Address nextStepFunc={nextStep} prevStep={prevStep} />;
+      break;
+
+    case 4:
       elements = <WorkExp nextStepFunc={nextStep} prevStep={prevStep} />;
       break;
 
-    case 3:
+    case 5:
       elements = <Education nextStepFunc={nextStep} prevStep={prevStep} />;
       break;
-    case 4:
+    case 6:
       elements = <Hobbies nextStepFunc={nextStep} prevStep={prevStep} />;
       break;
-    case 5:
+    case 7:
       elements = <Quotes nextStepFunc={nextStep} prevStep={prevStep} />;
       break;
-    case 6:
+    case 8:
       elements = <ProSkills nextStepFunc={nextStep} prevStep={prevStep} />;
       break;
-    case 7:
+    case 9:
       elements = <SocialLinks nextStepFunc={nextStep} prevStep={prevStep} />;
       break;
-    case 8:
+    case 9:
       elements = <SidebarStyles nextStepFunc={nextStep} prevStep={prevStep} />;
       break;
 

@@ -34,10 +34,6 @@ export function UserInfo({ nextStepFunc }) {
     });
   }
 
-  useEffect(() => {
-    // handleImage();
-  }, []);
-
   return (
     <div className="step-form-cont step1">
       <br />
