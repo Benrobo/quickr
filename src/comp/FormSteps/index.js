@@ -1,9 +1,42 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { HiUpload, HiChevronDown } from "react-icons/hi";
 
 import "./style.css";
 
+import DataContext from "../../context/DataContext";
+import { Notification } from "../../helpers/util";
+
+const notif = new Notification(3000);
+
 export function UserInfo({ nextStepFunc }) {
+  const [image, setImage] = useState("");
+
+  const { fullname, jobtype, setTempImage, setJobType, setFullname } =
+    useContext(DataContext);
+
+  function handleImage() {
+    let fileInput = document.querySelector(".file");
+    fileInput.click();
+
+    fileInput.addEventListener("change", (e) => {
+      let imageExt = ["png", "PNG", "jpeg", "JPEG", "jpg", "JPG", "svg", "SVG"];
+
+      let type = fileInput.files[0].type.split("/")[1];
+
+      if (imageExt.includes(type) === false) {
+        setImage("");
+        notif.error("Image type selected is invalid");
+        return;
+      }
+      let url = URL.createObjectURL(fileInput.files[0]);
+      setImage(url);
+      setTempImage(url);
+    });
+  }
+
+  useEffect(() => {
+    // handleImage();
+  }, []);
 
   return (
     <div className="step-form-cont step1">
@@ -11,13 +44,17 @@ export function UserInfo({ nextStepFunc }) {
       <div className="info-container">
         <div className="top">
           <img
-            src="https://avatars.dicebear.com/api/initials/john.svg"
+            src={
+              image === ""
+                ? "https://avatars.dicebear.com/api/initials/john.svg"
+                : image
+            }
             alt=""
             className="img-fluid"
           />
-          <input type="file" hidden />
+          <input type="file" className="file" hidden />
           <div className="span upload-box">
-            <HiUpload className="icon" />
+            <HiUpload className="icon" onClick={handleImage} />
           </div>
         </div>
         {/* body */}
@@ -29,17 +66,36 @@ export function UserInfo({ nextStepFunc }) {
               placeholder="First and Lastname"
               maxLength={20}
               className="inp form-control"
+              onChange={(e) => {
+                setFullname(e.target.value);
+              }}
+              value={fullname ? fullname : ""}
             />
             <input
               type="text"
               placeholder="Job Type"
               maxLength={20}
+              onChange={(e) => {
+                setJobType(e.target.value);
+              }}
               className="inp form-control"
+              value={jobtype ? jobtype : ""}
             />
             <button className="btn addbtn">Add Info</button>
           </div>
           <div className="action-cont">
-            <button className="btn next-btn" onClick={nextStepFunc}>
+            <button
+              className="btn next-btn"
+              onClick={(e) => {
+                if (fullname === "" || jobtype === "") {
+                  return notif.error("pls fill in all fields");
+                }
+                if (image === "") {
+                  return notif.error("Image isnt selected");
+                }
+                nextStepFunc();
+              }}
+            >
               Continue
             </button>
           </div>
@@ -84,8 +140,12 @@ export function Address({ nextStepFunc, prevStep }) {
             <button className="btn addbtn">Add Info</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn" onClick={prevStep}>Back</button>
-            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
+            <button className="btn back-btn" onClick={prevStep}>
+              Back
+            </button>
+            <button className="btn next-btn" onClick={nextStepFunc}>
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -132,8 +192,12 @@ export function WorkExp({ nextStepFunc, prevStep }) {
             <button className="btn addbtn">Add Experience</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn" onClick={prevStep}>Back</button>
-            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
+            <button className="btn back-btn" onClick={prevStep}>
+              Back
+            </button>
+            <button className="btn next-btn" onClick={nextStepFunc}>
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -176,8 +240,12 @@ export function Education({ nextStepFunc, prevStep }) {
             <button className="btn addbtn">Add Education</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn" onClick={prevStep}>Back</button>
-            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
+            <button className="btn back-btn" onClick={prevStep}>
+              Back
+            </button>
+            <button className="btn next-btn" onClick={nextStepFunc}>
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -205,8 +273,12 @@ export function Hobbies({ nextStepFunc, prevStep }) {
             <button className="btn addbtn">Add Hobbies</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn" onClick={prevStep}>Back</button>
-            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
+            <button className="btn back-btn" onClick={prevStep}>
+              Back
+            </button>
+            <button className="btn next-btn" onClick={nextStepFunc}>
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -234,8 +306,12 @@ export function Quotes({ nextStepFunc, prevStep }) {
             <button className="btn addbtn">Add Quotes</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn" onClick={prevStep}>Back</button>
-            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
+            <button className="btn back-btn" onClick={prevStep}>
+              Back
+            </button>
+            <button className="btn next-btn" onClick={nextStepFunc}>
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -272,8 +348,12 @@ export function ProSkills({ nextStepFunc, prevStep }) {
             <button className="btn addbtn">Add Pro Skill</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn" onClick={prevStep}>Back</button>
-            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
+            <button className="btn back-btn" onClick={prevStep}>
+              Back
+            </button>
+            <button className="btn next-btn" onClick={nextStepFunc}>
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -301,8 +381,12 @@ export function PersonalSkills({ nextStepFunc, prevStep }) {
             <button className="btn addbtn">Add P-Skills</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn" onClick={prevStep}>Back</button>
-            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
+            <button className="btn back-btn" onClick={prevStep}>
+              Back
+            </button>
+            <button className="btn next-btn" onClick={nextStepFunc}>
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -347,8 +431,12 @@ export function SocialLinks({ nextStepFunc, prevStep }) {
             <button className="btn addbtn">Add Links</button>
           </div>
           <div className="action-cont">
-            <button className="btn back-btn" onClick={prevStep}>Back</button>
-            <button className="btn next-btn" onClick={nextStepFunc}>Next</button>
+            <button className="btn back-btn" onClick={prevStep}>
+              Back
+            </button>
+            <button className="btn next-btn" onClick={nextStepFunc}>
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -373,8 +461,12 @@ export function SidebarStyles({ nextStepFunc, prevStep }) {
             <br />
           </div>
           <div className="action-cont">
-            <button className="btn back-btn" onClick={prevStep}>Back</button>
-            <button className="btn next-btn" onClick={nextStepFunc}>Save</button>
+            <button className="btn back-btn" onClick={prevStep}>
+              Back
+            </button>
+            <button className="btn next-btn" onClick={nextStepFunc}>
+              Save
+            </button>
           </div>
         </div>
       </div>

@@ -39,8 +39,10 @@
 }
 
 .template-view .left-cont .top img{
-  width: 40%;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  border: 3px solid var(--yel);
 }
 
 .template-view .left-cont .top .info-cont{

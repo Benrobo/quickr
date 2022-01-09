@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   HiPhone,
   HiMail,
@@ -14,12 +14,17 @@ import {
 import ProgressBar from "../ProgressBar/ProgressBar";
 
 import ZoomControl from "../ZoomControl/ZoomControl";
+import DataContext from "../../context/DataContext";
 
 import "./style.css";
 
 function Default() {
   const [scale, setSCale] = useState(1);
   const [zoomState, setZoomState] = useState("in");
+  const { fullname, jobtype, imageTemp } =
+    useContext(DataContext);
+
+    console.log(imageTemp);
 
   useEffect(() => {
     let temp = document.querySelector(".template-view");
@@ -37,14 +42,18 @@ function Default() {
           {/* info */}
           <div className="top">
             <img
-              src="https://avatars.dicebear.com/api/initials/john.svg"
+              src={imageTemp === "" ? "https://avatars.dicebear.com/api/initials/john.svg" : imageTemp}
               alt=""
               className="img-fluid"
             />
             <div className="info-cont">
               <div className="t">
-                <h5 className="name">John Doe</h5>
-                <span className="job-type">Designer & Frontend Developer</span>
+                <h5 className="name">
+                  {fullname === "" ? "John Doe" : fullname}
+                </h5>
+                <span className="job-type">
+                  {jobtype === "" ? "Designer & Frontend Developer" : jobtype}
+                </span>
               </div>
               <div className="b">
                 <ul className="list">
