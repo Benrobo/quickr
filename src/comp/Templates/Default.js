@@ -21,10 +21,9 @@ import "./style.css";
 function Default() {
   const [scale, setSCale] = useState(1);
   const [zoomState, setZoomState] = useState("in");
-  const { fullname, jobtype, imageTemp } =
-    useContext(DataContext);
+  const { fullname, jobtype, imageTemp } = useContext(DataContext);
 
-    console.log(imageTemp);
+  console.log(imageTemp);
 
   useEffect(() => {
     let temp = document.querySelector(".template-view");
@@ -42,7 +41,11 @@ function Default() {
           {/* info */}
           <div className="top">
             <img
-              src={imageTemp === "" ? "https://avatars.dicebear.com/api/initials/john.svg" : imageTemp}
+              src={
+                imageTemp === ""
+                  ? "https://avatars.dicebear.com/api/initials/john.svg"
+                  : imageTemp
+              }
               alt=""
               className="img-fluid"
             />
@@ -85,6 +88,7 @@ function Default() {
             </div>
             <br />
             <div className="cards-container">
+              {/* <div className="work-cards"> */}
               <div className="l">
                 <span className="year">2015</span>
                 <HiBadgeCheck className="icon" />
@@ -99,10 +103,14 @@ function Default() {
                   <span>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Necessitatibus nemo ducimus laboriosam non atque quasi
-                    sapiente, itaque reprehenderit? Ipsam, illo?
+                    sapiente, itaque reprehenderit? Ipsam, illo? Lorem ipsum,
+                    dolor sit amet consectetur adipisicing elit. Blanditiis
+                    placeat minus voluptate enim veritatis eaque perspiciatis
+                    asperiores quas iste eos.
                   </span>
                 </div>
               </div>
+              {/* </div> */}
             </div>
           </div>
           {/* education */}

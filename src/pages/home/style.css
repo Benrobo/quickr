@@ -20,7 +20,6 @@
   position: relative;
   overflow-y: scroll;
   overflow-x: scroll;
-
 }
 
 .home-cont .main .top-bar {
@@ -60,8 +59,8 @@
 }
 
 .home-cont .templates-container {
-  width: 100%;
-  height: auto;
+  width: 816px;
+  height: 1056px;
   display: flex;
   align-items: center;
   justify-content: space-between;
