@@ -21,9 +21,16 @@ import "./style.css";
 function Default() {
   const [scale, setSCale] = useState(1);
   const [zoomState, setZoomState] = useState("in");
-  const { fullname, jobtype, imageTemp } = useContext(DataContext);
-
-  console.log(imageTemp);
+  const {
+    fullname,
+    jobtype,
+    imageTemp,
+    phonenumber,
+    email,
+    phoneType,
+    address,
+    jobStore,
+  } = useContext(DataContext);
 
   useEffect(() => {
     let temp = document.querySelector(".template-view");
@@ -32,6 +39,7 @@ function Default() {
     } else {
       temp.style.transform = `scale(${scale})`;
     }
+    console.log(jobStore);
   }, [scale]);
 
   return (
@@ -62,16 +70,24 @@ function Default() {
                 <ul className="list">
                   <li>
                     <HiPhone className="icon" />
-                    <span className="phone">+234 - 07084506679</span>
+                    <span className="phone">
+                      {phonenumber === "" || phoneType === ""
+                        ? "+234 - 07084506679"
+                        : `${phoneType} - ${phonenumber}`}
+                    </span>
                   </li>
                   <li>
                     <HiMail className="icon" />
-                    <span className="mail">johndoe@mail.com</span>
+                    <span className="mail">
+                      {email === "" ? "johndoe@mail.com" : email}
+                    </span>
                   </li>
                   <li>
                     <HiLocationMarker className="icon" />
                     <span className="location">
-                      22, Alfred Str, United State
+                      {address === ""
+                        ? "22, Alfred Str, United State"
+                        : address}
                     </span>
                   </li>
                 </ul>

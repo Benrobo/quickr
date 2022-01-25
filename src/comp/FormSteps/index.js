@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { HiUpload, HiChevronDown } from "react-icons/hi";
+import code from "../../helpers/phonenumbers.json";
 
 import "./style.css";
 
@@ -77,7 +78,7 @@ export function UserInfo({ nextStepFunc }) {
               className="inp form-control"
               value={jobtype ? jobtype : ""}
             />
-            <button className="btn addbtn">Add Info</button>
+            {/* <button className="btn addbtn">Add Info</button> */}
           </div>
           <div className="action-cont">
             <button
@@ -103,6 +104,17 @@ export function UserInfo({ nextStepFunc }) {
 }
 
 export function Address({ nextStepFunc, prevStep }) {
+  const {
+    phoneType,
+    phonenumber,
+    email,
+    address,
+    setPhoneType,
+    setPhoneNumber,
+    setEmail,
+    setAddress,
+  } = useContext(DataContext);
+
   return (
     <div className="step-form-cont step1">
       <br />
@@ -112,34 +124,72 @@ export function Address({ nextStepFunc, prevStep }) {
             <h3>Address</h3>
             <br />
             <div className="join-cont">
-              <select className="phonetype sel">
-                <option value="+234">+234</option>
+              <select
+                className="phonetype sel"
+                onChange={(e) => {
+                  setPhoneType(e.target.value);
+                }}
+              >
+                {code.map((elm, i) => {
+                  return (
+                    <option value={elm.E164} key={i}>
+                      +{elm.E164} {elm["Country Name"]}
+                    </option>
+                  );
+                })}
               </select>
               <input
                 type="number"
                 placeholder="Phonenumber"
                 className="inp form-control"
+                defaultValue={phonenumber}
+                onChange={(e) => {
+                  setPhoneNumber(e.target.value);
+                }}
               />
             </div>
             <input
               type="email"
               placeholder="Email"
               className="inp form-control"
+              defaultValue={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
             <input
               type="text"
               placeholder="Full Address"
               maxLength={50}
               className="inp form-control"
+              defaultValue={address}
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
             />
             <br />
-            <button className="btn addbtn">Add Info</button>
+            {/* <button className="btn addbtn">Add Info</button> */}
           </div>
           <div className="action-cont">
             <button className="btn back-btn" onClick={prevStep}>
               Back
             </button>
-            <button className="btn next-btn" onClick={nextStepFunc}>
+            <button
+              className="btn next-btn"
+              onClick={() => {
+                console.log(phoneType);
+                if (phoneType == "") {
+                  return notif.error("country code is missing");
+                } else if (phonenumber == "") {
+                  return notif.error("phonenumber cant be empty");
+                } else if (email == "") {
+                  return notif.error("email cant be empty");
+                } else if (address == "") {
+                  return notif.error("address cant be empty");
+                }
+                nextStepFunc();
+              }}
+            >
               Next
             </button>
           </div>
@@ -150,6 +200,52 @@ export function Address({ nextStepFunc, prevStep }) {
 }
 
 export function WorkExp({ nextStepFunc, prevStep }) {
+  const {
+    jobyear,
+    jobtitle,
+    jobLocation,
+    jobexp,
+    jobStore,
+    setJobYear,
+    setJobLocation,
+    setJobExp,
+    setJobStore,
+    setJobTitle,
+  } = useContext(DataContext);
+
+  let arrayjobs = [];
+  let [count, setCount] = useState([]);
+  let jobMemory = {};
+
+  function handleForm() {
+    // validate
+    if (jobyear === "") {
+      return notif.error("job year cant be empty");
+    }
+    if (jobtitle === "") {
+      return notif.error("job title cant be empty");
+    }
+    if (jobLocation === "") {
+      return notif.error("job location cant be empty");
+    }
+    if (jobexp === "") {
+      return notif.error("job experience cant be empty");
+    }
+
+    jobMemory = {
+      year: jobyear,
+      title: jobtitle,
+      location: jobLocation,
+      experience: jobexp,
+    };
+    // count = count + 1;
+    setCount([...["jobMemory"]]);
+    // arrayjobs.push("jobMemory");
+
+    // setJobStore(arrayjobs);
+    console.log(count);
+  }
+
   return (
     <div className="step-form-cont step1">
       <br />
@@ -157,6 +253,11 @@ export function WorkExp({ nextStepFunc, prevStep }) {
         <div className="bottom-cont">
           <div className="box box-1">
             <h3>Work Experience</h3>
+            {arrayjobs.length > 0
+              ? arrayjobs.map((elm, i) => {
+                  return <span>{i}</span>;
+                })
+              : ""}
             <br />
             <div className="join-cont">
               <input
@@ -166,26 +267,40 @@ export function WorkExp({ nextStepFunc, prevStep }) {
                 step="1"
                 placeholder="2016"
                 className="date sel"
+                onChange={(e) => {
+                  setJobYear(e.target.value);
+                }}
               />
               <input
-                type="number"
+                type="text"
                 placeholder="Job Title"
                 className="inp form-control"
+                onChange={(e) => {
+                  setJobTitle(e.target.value);
+                }}
               />
             </div>
             <input
-              type="email"
+              type="text"
               maxLength={50}
               placeholder="Location"
               className="inp form-control"
+              onChange={(e) => {
+                setJobLocation(e.target.value);
+              }}
             />
             <textarea
               cols="30"
               rows="3"
               className="inp form-control expText"
+              onChange={(e) => {
+                setJobExp(e.target.value);
+              }}
             ></textarea>
             <br />
-            <button className="btn addbtn">Add Experience</button>
+            <button className="btn addbtn" onClick={handleForm}>
+              Add Experience
+            </button>
           </div>
           <div className="action-cont">
             <button className="btn back-btn" onClick={prevStep}>

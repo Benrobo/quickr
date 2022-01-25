@@ -23,51 +23,35 @@ function Sidebar() {
   let allSteps = document.querySelectorAll(".step-form-cont");
 
   function nextStep() {
-    // setSteps(steps > allSteps.length ? (steps = 1) : steps++);
-    setSteps(steps++);
+    setSteps((steps += 1));
   }
 
   function prevStep() {
-    setSteps(steps === 0 ? (steps = 1) : steps--);
+    setSteps(steps === 0 ? (steps = 1) : (steps -= 1));
   }
 
   let elements;
 
-  switch (steps) {
-    case 1:
-      elements = <UserInfo nextStepFunc={nextStep} prevStep={prevStep} />;
-      break;
-
-    case 3:
-      elements = <Address nextStepFunc={nextStep} prevStep={prevStep} />;
-      break;
-
-    case 4:
-      elements = <WorkExp nextStepFunc={nextStep} prevStep={prevStep} />;
-      break;
-
-    case 5:
-      elements = <Education nextStepFunc={nextStep} prevStep={prevStep} />;
-      break;
-    case 6:
-      elements = <Hobbies nextStepFunc={nextStep} prevStep={prevStep} />;
-      break;
-    case 7:
-      elements = <Quotes nextStepFunc={nextStep} prevStep={prevStep} />;
-      break;
-    case 8:
-      elements = <ProSkills nextStepFunc={nextStep} prevStep={prevStep} />;
-      break;
-    case 9:
-      elements = <SocialLinks nextStepFunc={nextStep} prevStep={prevStep} />;
-      break;
-    case 9:
-      elements = <SidebarStyles nextStepFunc={nextStep} prevStep={prevStep} />;
-      break;
-
-    default:
-      elements = <UserInfo nextStepFunc={nextStep} prevStep={prevStep} />;
-      break;
+  if (steps === 1) {
+    elements = <UserInfo nextStepFunc={nextStep} prevStep={prevStep} />;
+  } else if (steps === 2) {
+    elements = <Address nextStepFunc={nextStep} prevStep={prevStep} />;
+  } else if (steps === 3) {
+    elements = <WorkExp nextStepFunc={nextStep} prevStep={prevStep} />;
+  } else if (steps === 4) {
+    elements = <Education nextStepFunc={nextStep} prevStep={prevStep} />;
+  } else if (steps === 5) {
+    elements = <Hobbies nextStepFunc={nextStep} prevStep={prevStep} />;
+  } else if (steps === 6) {
+    elements = <Quotes nextStepFunc={nextStep} prevStep={prevStep} />;
+  } else if (steps === 7) {
+    elements = <ProSkills nextStepFunc={nextStep} prevStep={prevStep} />;
+  } else if (steps === 8) {
+    elements = <SocialLinks nextStepFunc={nextStep} prevStep={prevStep} />;
+  } else if (steps === 9) {
+    elements = <SidebarStyles nextStepFunc={nextStep} prevStep={prevStep} />;
+  } else {
+    elements = <UserInfo nextStepFunc={nextStep} prevStep={prevStep} />;
   }
 
   useEffect(() => {
@@ -81,20 +65,7 @@ function Sidebar() {
         {/* <img src={logo} alt="" className="img-fluid logo" /> */}
         <span>Quickr</span>
       </div>
-
       {elements}
-
-      {console.log(steps)}
-
-      {/* <Address />
-      <WorkExp />
-      <Education />
-      <Hobbies />
-      <Quotes />
-      <ProSkills />
-      <PersonalSkills />
-      <SocialLinks />
-      <SidebarStyles /> */}
     </div>
   );
 }
