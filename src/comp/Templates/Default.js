@@ -34,6 +34,8 @@ function Default() {
     hobbies,
     quotes,
     skillStore,
+    pskillStore,
+    socials,
   } = useContext(DataContext);
 
   useEffect(() => {
@@ -261,9 +263,17 @@ function Default() {
               <h5>Personal Skills</h5>
             </div>
             <div className="p-skills-cont">
-              {[1, 2, 3, 4, 5, 6].map((i) => {
-                return <span className="skill">Team</span>;
-              })}
+              {pskillStore.length > 0 ? (
+                pskillStore.map((skill, i) => {
+                  return (
+                    <span className="skill" key={i}>
+                      {skill}
+                    </span>
+                  );
+                })
+              ) : (
+                <span className="skill">Team</span>
+              )}
             </div>
           </div>
           {/* socials */}
@@ -272,46 +282,33 @@ function Default() {
               <h5>Socials</h5>
             </div>
             <ul className="list">
-              <li>
-                <HiGlobeAlt className="icon" />
-                <a
-                  href="http://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  http://facebook.com
-                </a>
-              </li>
-              <li>
-                <HiGlobeAlt className="icon" />
-                <a
-                  href="http://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  http://twitter.com
-                </a>
-              </li>
-              <li>
-                <HiGlobeAlt className="icon" />
-                <a
-                  href="http://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  http://github.com
-                </a>
-              </li>
-              <li>
-                <HiGlobeAlt className="icon" />
-                <a
-                  href="http://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  http://instagram.com
-                </a>
-              </li>
+              {socials.length > 0 ? (
+                socials.map((list, i) => {
+                  return (
+                    <li key={list.id}>
+                      <HiGlobeAlt className="icon" />
+                      <a
+                        href={list.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {list.url}
+                      </a>
+                    </li>
+                  );
+                })
+              ) : (
+                <li>
+                  <HiGlobeAlt className="icon" />
+                  <a
+                    href="http://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    http://facebook.com
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>

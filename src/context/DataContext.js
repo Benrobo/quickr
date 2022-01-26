@@ -36,7 +36,11 @@ export function DataContextProvider({ children }) {
   const [skillLevel, setSkillLevel] = useState(0);
   const [skillStore, setSkillStore] = useState([]);
   // personal skill
-  const [personalSKill, setPersonalSKill] = useState("");
+  const [personalSkill, setPersonalSkill] = useState("");
+  const [pskillStore, setPersonalStore] = useState([]);
+
+  // socials
+  const [socials, setSocials] = useState([]);
 
   return (
     <DataContext.Provider
@@ -62,7 +66,9 @@ export function DataContextProvider({ children }) {
         skillname,
         skillLevel,
         skillStore,
-        personalSKill,
+        personalSkill,
+        pskillStore,
+        socials,
         setPhoneType,
         setPhoneNumber,
         setEmail,
@@ -75,7 +81,8 @@ export function DataContextProvider({ children }) {
         setSkillname,
         setSkillLevel,
         setSkillStore,
-        setPersonalSKill,
+        setPersonalSkill,
+        setPersonalStore,
         setTempImage,
         setJobType,
         setFullname,
@@ -86,6 +93,7 @@ export function DataContextProvider({ children }) {
         setEduYear,
         setEducationName,
         setEduExp,
+        setSocials,
       }}
     >
       {children}

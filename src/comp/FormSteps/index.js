@@ -633,6 +633,23 @@ export function ProSkills({ nextStepFunc, prevStep }) {
 }
 
 export function PersonalSkills({ nextStepFunc, prevStep }) {
+  const { personalSkill, setPersonalSkill, setPersonalStore } =
+    useContext(DataContext);
+
+  function handleForm() {
+    // validate
+    if (personalSkill === "") {
+      return notif.error("input cant be empty");
+    }
+
+    let pskill = personalSkill
+      .trim()
+      .replace(/^\s+|\s+$/gm, "")
+      .split(",");
+
+    setPersonalStore([...pskill]);
+  }
+
   return (
     <div className="step-form-cont step1">
       <br />
@@ -647,9 +664,13 @@ export function PersonalSkills({ nextStepFunc, prevStep }) {
               maxLength={300}
               className="inp form-control expText"
               placeholder="add personal skills seperated by comma. (,)"
+              defaultValue={personalSkill}
+              onChange={(e) => setPersonalSkill(e.target.value)}
             ></textarea>
             <br />
-            <button className="btn addbtn">Add P-Skills</button>
+            <button className="btn addbtn" onClick={handleForm}>
+              Add P-Skills
+            </button>
           </div>
           <div className="action-cont">
             <button className="btn back-btn" onClick={prevStep}>
@@ -666,6 +687,44 @@ export function PersonalSkills({ nextStepFunc, prevStep }) {
 }
 
 export function SocialLinks({ nextStepFunc, prevStep }) {
+  const { socials, setSocials } = useContext(DataContext);
+  const [url, setUrl] = useState("");
+
+  function validUrl(text) {
+    try {
+      let url = new URL(text);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+  const genId = () => {
+    let char = "ABCDefghi09546".split("");
+    let str = "";
+    for (let i = 0; i < 5 + 1; i++) {
+      const rand = Math.floor(Math.random() * char.length);
+
+      str += char[rand];
+    }
+    return str;
+  };
+
+  function handleForm() {
+    if (url === "") {
+      return notif.error("provide at least one url");
+    }
+    if (validUrl(url) === false && url !== "") {
+      return notif.error("facebook url is invalid");
+    }
+
+    let linkstore = {
+      id: genId(),
+      url,
+    };
+
+    setSocials([...socials, linkstore]);
+  }
+
   return (
     <div className="step-form-cont step1">
       <br />
@@ -676,30 +735,21 @@ export function SocialLinks({ nextStepFunc, prevStep }) {
             <br />
             <input
               type="url"
-              placeholder="facebook"
+              placeholder="urls"
               className="inp form-control"
-              maxLength="200"
-            />
-            <input
-              type="url"
-              placeholder="twitter"
-              className="inp form-control"
-              maxLength="200"
-            />
-            <input
-              type="url"
-              placeholder="github"
-              className="inp form-control"
-              maxLength="200"
-            />
-            <input
-              type="url"
-              placeholder="instagram"
-              className="inp form-control"
-              maxLength="200"
+              maxLength="70"
+              defaultValue={url}
+              onChange={(e) => {
+                setUrl(e.target.value);
+              }}
             />
             <br />
-            <button className="btn addbtn">Add Links</button>
+            <div className="badge-container d-flex flex-wrap">
+              <Badge list={socials} deleteItem={setSocials} />
+            </div>
+            <button className="btn addbtn" onClick={handleForm}>
+              Add Links
+            </button>
           </div>
           <div className="action-cont">
             <button className="btn back-btn" onClick={prevStep}>
