@@ -41,10 +41,6 @@ export function DataContextProvider({ children }) {
   // personal skill
   const [personalSKill, setPersonalSKill] = useState("");
 
-  useEffect(() => {
-    console.log(jobStore);
-  }, [jobStore, setJobStore]);
-
   return (
     <DataContext.Provider
       value={{
