@@ -7,29 +7,29 @@ function Badge({ list, deleteItem }) {
     let id = e.target.dataset.id;
 
     let newelm = list.filter((elm) => {
-      return elm.id !== id;
-    })[0];
-
-    // return console.log(id, newelm);
-    deleteItem([newelm]);
+      if (elm.id !== undefined) {
+        return elm.id !== id;
+      }
+    });
+    deleteItem([...newelm]);
   }
 
   return (
     <>
       {list.length > 0
         ? list.map((data, i) => {
-            return (
-              <div className="badge-cont" key={i}>
-                {i}
-                <span
-                  className="icon"
-                  data-id={data.id === undefined ? "" : data.id}
-                  onClick={handleDelete}
-                >
-                  x
-                </span>
-              </div>
-            );
+            if (data && data.id !== undefined) {
+              return (
+                <div className="badge-cont" key={i}>
+                  {i}
+                  <HiX
+                    className="icon"
+                    data-id={data.id}
+                    onClick={handleDelete}
+                  />
+                </div>
+              );
+            }
           })
         : ""}
     </>

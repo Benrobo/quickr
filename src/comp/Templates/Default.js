@@ -30,6 +30,7 @@ function Default() {
     phoneType,
     address,
     jobStore,
+    eduStore,
   } = useContext(DataContext);
 
   useEffect(() => {
@@ -97,75 +98,107 @@ function Default() {
           {/* work exp */}
           <div className="work-exp">
             <div className="head">
-              <span>
-                <HiBriefcase className="icon" />
-              </span>
-              <p className="work-exp">Work Experience</p>
+              <HiBriefcase className="icon" />
+              <span className="work-exp">Work Experience</span>
             </div>
-            <br />
-            <div className="cards-container">
-              {/* <div className="work-cards"> */}
-              <div className="l">
-                <span className="year">2015</span>
-                <HiBadgeCheck className="icon" />
-              </div>
-              <div className="r">
-                <div className="t">
-                  <h5>HR MANAGER</h5>
-                  <span className="location">Location here</span>
+            {jobStore !== undefined && jobStore.length > 0 ? (
+              jobStore.map((list) => {
+                return (
+                  <div className="cards-container">
+                    {/* <div className="work-cards"> */}
+                    <div className="l">
+                      <span className="year">{list.year}</span>
+                      <HiBadgeCheck className="icon" />
+                    </div>
+                    <div className="r">
+                      <div className="t">
+                        <h5>{list.title}</h5>
+                        <span className="location">{list.location}</span>
+                      </div>
+                      <br />
+                      <div className="b mounted">
+                        <span>{list.experience.replace('"', "")}</span>
+                      </div>
+                    </div>
+                    {/* </div> */}
+                  </div>
+                );
+              })
+            ) : (
+              <div className="cards-container">
+                <div className="l">
+                  <span className="year">2015</span>
+                  <HiBadgeCheck className="icon" />
                 </div>
-                <br />
-                <div className="b">
-                  <span>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Necessitatibus nemo ducimus laboriosam non atque quasi
-                    sapiente, itaque reprehenderit? Ipsam, illo? Lorem ipsum,
-                    dolor sit amet consectetur adipisicing elit. Blanditiis
-                    placeat minus voluptate enim veritatis eaque perspiciatis
-                    asperiores quas iste eos.
-                  </span>
+                <div className="r">
+                  <div className="t">
+                    <h5>HR MANAGER</h5>
+                    <span className="location">Location here</span>
+                  </div>
+                  <br />
+                  <div className="b">
+                    <span>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Deleniti, quidem illum nulla ut nostrum placeat laboriosam
+                      excepturi laudantium doloremque dignissimos.
+                    </span>
+                  </div>
                 </div>
               </div>
-              {/* </div> */}
-            </div>
+            )}
           </div>
           {/* education */}
           <div className="education-exp">
             <div className="head">
               <HiBriefcase className="icon" />
-              <p className="education-exp">Education</p>
+              <span className="education-exp">Education</span>
             </div>
-            <br />
-
-            {[1, 2, 3].map((i) => {
-              return (
-                <div className="cards-container">
-                  <div className="l">
-                    <span className="year">2015</span>
-                    <HiBadgeCheck className="icon" />
+            {eduStore !== undefined && eduStore.length > 0 ? (
+              eduStore.map((list, i) => {
+                return (
+                  <div className="cards-container">
+                    <div className="l">
+                      <span className="year">{list.year}</span>
+                      <HiBadgeCheck className="icon" />
+                    </div>
+                    <div className="r">
+                      <div className="t">
+                        <h5>{list.title}</h5>
+                      </div>
+                      <br />
+                      <div className="b">
+                        <span>{list.experience}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="r">
-                    <div className="t">
-                      <h5>A.S Business Admin</h5>
-                    </div>
-                    <br />
-                    <div className="b">
-                      <span>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit.? Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit.
-                      </span>
-                    </div>
+                );
+              })
+            ) : (
+              <div className="cards-container">
+                <div className="l">
+                  <span className="year">2015</span>
+                  <HiBadgeCheck className="icon" />
+                </div>
+                <div className="r">
+                  <div className="t">
+                    <h5>A.S Business Admin</h5>
+                  </div>
+                  <br />
+                  <div className="b">
+                    <span>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.?
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </span>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            )}
           </div>
           {/* Hobbies */}
           <div className="hobbies">
             <div className="head">
               <HiBriefcase className="icon" />
-              <p className="education-exp">Hobbies AND Experience</p>
+              <span className="hobbies-exp">Hobbies & Experience</span>
             </div>
             <div className="body">
               <span>

@@ -214,8 +214,6 @@ export function WorkExp({ nextStepFunc, prevStep }) {
     setJobTitle,
   } = useContext(DataContext);
 
-  // const [list, setList] = useState([]);
-  const [jobstate, setJobState] = useState(false);
   let jobMemory = {};
 
   const genId = () => {
@@ -253,12 +251,7 @@ export function WorkExp({ nextStepFunc, prevStep }) {
     };
 
     setJobStore([...jobStore, jobMemory]);
-    setJobState(true);
   }
-
-  useEffect(() => {
-    console.log(jobStore);
-  }, [jobStore]);
 
   return (
     <div className="step-form-cont step1">
@@ -276,6 +269,7 @@ export function WorkExp({ nextStepFunc, prevStep }) {
                 step="1"
                 placeholder="2016"
                 className="date sel"
+                defaultValue={jobyear}
                 onChange={(e) => {
                   setJobYear(e.target.value);
                 }}
@@ -284,6 +278,7 @@ export function WorkExp({ nextStepFunc, prevStep }) {
                 type="text"
                 placeholder="Job Title"
                 className="inp form-control"
+                defaultValue={jobtitle}
                 onChange={(e) => {
                   setJobTitle(e.target.value);
                 }}
@@ -294,6 +289,7 @@ export function WorkExp({ nextStepFunc, prevStep }) {
               maxLength={50}
               placeholder="Location"
               className="inp form-control"
+              defaultValue={jobLocation}
               onChange={(e) => {
                 setJobLocation(e.target.value);
               }}
@@ -302,16 +298,15 @@ export function WorkExp({ nextStepFunc, prevStep }) {
               cols="30"
               rows="2"
               className="inp form-control expText"
+              defaultValue={jobexp}
               onChange={(e) => {
                 setJobExp(e.target.value);
               }}
             ></textarea>
             <br />
-            {jobstate && (
-              <div className="badge-container d-flex flex-wrap">
-                <Badge list={jobStore} deleteItem={setJobStore} />
-              </div>
-            )}
+            <div className="badge-container d-flex flex-wrap">
+              <Badge list={jobStore} deleteItem={setJobStore} />
+            </div>
             <button className="btn addbtn" onClick={handleForm}>
               Add Experience
             </button>
@@ -320,7 +315,13 @@ export function WorkExp({ nextStepFunc, prevStep }) {
             <button className="btn back-btn" onClick={prevStep}>
               Back
             </button>
-            <button className="btn next-btn" onClick={nextStepFunc}>
+            <button
+              className="btn next-btn"
+              onClick={() => {
+                handleForm();
+                nextStepFunc();
+              }}
+            >
               Next
             </button>
           </div>
@@ -331,6 +332,53 @@ export function WorkExp({ nextStepFunc, prevStep }) {
 }
 
 export function Education({ nextStepFunc, prevStep }) {
+  const {
+    eduYear,
+    eduName,
+    eduExp,
+    eduStore,
+    setEduYear,
+    setEducationName,
+    setEduExp,
+    setEduStore,
+  } = useContext(DataContext);
+
+  let eduMemory = {};
+
+  const genId = () => {
+    let char = "ABCDefghi09546".split("");
+    let str = "";
+    for (let i = 0; i < 5 + 1; i++) {
+      const rand = Math.floor(Math.random() * char.length);
+
+      str += char[rand];
+    }
+    return str;
+  };
+
+  function handleForm() {
+    // validate
+    if (eduYear === "") {
+      return notif.error("education year cant be empty");
+    }
+    if (eduName === "") {
+      return notif.error("education name cant be empty");
+    }
+    if (eduExp === "") {
+      return notif.error("education experience cant be empty");
+    }
+
+    eduMemory = {
+      id: genId(),
+      year: eduYear,
+      title: eduName,
+      experience: eduExp,
+    };
+
+    setEduStore([...eduStore, eduMemory]);
+    console.log(eduStore);
+  }
+
   return (
     <div className="step-form-cont step1">
       <br />
@@ -347,11 +395,19 @@ export function Education({ nextStepFunc, prevStep }) {
                 step="1"
                 placeholder="2016"
                 className="date sel"
+                defaultValue={eduYear}
+                onChange={(e) => {
+                  setEduYear(e.target.value);
+                }}
               />
               <input
-                type="number"
-                placeholder="SChool Name"
+                type="text"
+                placeholder="School Name"
                 className="inp form-control"
+                defaultValue={eduName}
+                onChange={(e) => {
+                  setEducationName(e.target.value);
+                }}
               />
             </div>
             <textarea
@@ -360,9 +416,17 @@ export function Education({ nextStepFunc, prevStep }) {
               maxLength={400}
               placeholder="Education"
               className="inp form-control expText"
+              defaultValue={eduExp}
+              onChange={(e) => {
+                setEduExp(e.target.value);
+              }}
             ></textarea>
-            <br />
-            <button className="btn addbtn">Add Education</button>
+            <div className="badge-container d-flex flex-wrap">
+              <Badge list={eduStore} deleteItem={setEduStore} />
+            </div>
+            <button className="btn addbtn" onClick={handleForm}>
+              Add Education
+            </button>
           </div>
           <div className="action-cont">
             <button className="btn back-btn" onClick={prevStep}>

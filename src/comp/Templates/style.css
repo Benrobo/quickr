@@ -16,7 +16,7 @@
 /* Left Part */
 
 .template-view .left-cont {
-  width: 100%;
+  width: 600px;
   height: auto;
   background: var(--dark-m-2);
   display: flex;
@@ -94,7 +94,7 @@
   margin-right: 10px;
 }
 
-/* woerk exp */
+/* work exp */
 
 .template-view .left-cont .work-exp {
   width: 100%;
@@ -108,8 +108,9 @@
 .template-view .left-cont .work-exp .head {
   width: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
+  height: 100px;
 }
 
 .template-view .left-cont .work-exp .head .icon {
@@ -118,17 +119,19 @@
   background: var(--yel-tp);
   border-radius: 50%;
   color: var(--yel);
-  margin-bottom: 10px;
+  /* margin-top: 0px; */
 }
 
 .template-view .left-cont .work-exp .cards-container {
   width: 100%;
-  height: 200px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
   position: relative;
+  word-wrap: break-word;
+  margin-top: 10px;
 }
 
 .template-view .left-cont .work-exp .cards-container .l {
@@ -178,7 +181,19 @@
   text-transform: capitalize;
   position: relative;
   top: 0px;
+  height: auto;
   max-height: 150px;
+  word-wrap: break-word;
+  width: 100%;
+}
+
+.template-view .left-cont .work-exp .cards-container .r .b.mounted {
+  width: 400px;
+}
+
+.template-view .left-cont .work-exp .cards-container .r .b span {
+  word-wrap: break-word;
+  width: 100%;
 }
 
 /* Education */
@@ -187,7 +202,7 @@
   width: 100%;
   height: auto;
   position: relative;
-  top: 0px;
+  top: -20px;
   margin-bottom: 20px;
   padding: 20px;
 }
@@ -195,8 +210,9 @@
 .template-view .left-cont .education-exp .head {
   width: 100%;
   display: flex;
-  /* align-items: flex-end; */
-  /* justify-content: flex-start; */
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 60px;
 }
 
 .template-view .left-cont .education-exp .head .icon {
@@ -205,12 +221,12 @@
   background: var(--yel-tp);
   border-radius: 50%;
   color: var(--yel);
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
 .template-view .left-cont .education-exp .cards-container {
   width: 100%;
-  height: 150px;
+  height: 120px;
   max-height: 200px;
   display: flex;
   align-items: center;
@@ -218,6 +234,7 @@
   flex-direction: row;
   position: relative;
   top: 0px;
+  margin-top: 10px;
 }
 
 .template-view .left-cont .education-exp .cards-container .l {
@@ -275,7 +292,7 @@
   width: 100%;
   height: auto;
   position: relative;
-  top: 0px;
+  top: -20px;
   margin-bottom: 20px;
   padding: 20px;
 }
@@ -283,6 +300,9 @@
 .template-view .left-cont .hobbies .head {
   width: 100%;
   display: flex;
+  align-items: flex-start;
+  height: 60px;
+  justify-content: flex-start;
 }
 
 .template-view .left-cont .hobbies .head .icon {
@@ -291,6 +311,11 @@
   background: var(--yel-tp);
   border-radius: 50%;
   color: var(--yel);
+  margin-top: 15px;
+}
+
+.template-view .left-cont .hobbies .head span {
+  margin-left: 20px;
   margin-top: 15px;
 }
 
@@ -305,7 +330,8 @@
 /* Right Part */
 
 .template-view .right-cont {
-  width: 55%;
+  width: 300px;
+  max-width: 55%;
   height: 100%;
   background: var(--dark);
   display: flex;
