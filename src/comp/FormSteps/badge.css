@@ -1,0 +1,24 @@
+.badge-cont {
+  padding: 2px 10px;
+  background: var(--dark-m);
+  width: 25%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 30px;
+  box-shadow: 0px 0px 3px #777;
+  transform: scale(0.85);
+}
+
+.badge-cont .icon {
+  position: absolute;
+  right: 0px;
+  padding: 5px;
+  font-size: 30px;
+  background: var(--dark);
+  color: var(--light);
+  border-radius: 50%;
+  cursor: pointer;
+}

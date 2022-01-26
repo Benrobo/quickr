@@ -6,6 +6,7 @@ import "./style.css";
 
 import DataContext from "../../context/DataContext";
 import { Notification } from "../../helpers/util";
+import Badge from "./badge";
 
 const notif = new Notification(3000);
 
@@ -213,9 +214,20 @@ export function WorkExp({ nextStepFunc, prevStep }) {
     setJobTitle,
   } = useContext(DataContext);
 
-  let arrayjobs = [];
-  let [count, setCount] = useState([]);
+  // const [list, setList] = useState([]);
+  const [jobstate, setJobState] = useState(false);
   let jobMemory = {};
+
+  const genId = () => {
+    let char = "ABCDefghi09546".split("");
+    let str = "";
+    for (let i = 0; i < 5 + 1; i++) {
+      const rand = Math.floor(Math.random() * char.length);
+
+      str += char[rand];
+    }
+    return str;
+  };
 
   function handleForm() {
     // validate
@@ -233,18 +245,20 @@ export function WorkExp({ nextStepFunc, prevStep }) {
     }
 
     jobMemory = {
+      id: genId(),
       year: jobyear,
       title: jobtitle,
       location: jobLocation,
       experience: jobexp,
     };
-    // count = count + 1;
-    setCount([...["jobMemory"]]);
-    // arrayjobs.push("jobMemory");
 
-    // setJobStore(arrayjobs);
-    console.log(count);
+    setJobStore([...jobStore, jobMemory]);
+    setJobState(true);
   }
+
+  useEffect(() => {
+    console.log(jobStore);
+  }, [jobStore]);
 
   return (
     <div className="step-form-cont step1">
@@ -253,11 +267,6 @@ export function WorkExp({ nextStepFunc, prevStep }) {
         <div className="bottom-cont">
           <div className="box box-1">
             <h3>Work Experience</h3>
-            {arrayjobs.length > 0
-              ? arrayjobs.map((elm, i) => {
-                  return <span>{i}</span>;
-                })
-              : ""}
             <br />
             <div className="join-cont">
               <input
@@ -291,13 +300,18 @@ export function WorkExp({ nextStepFunc, prevStep }) {
             />
             <textarea
               cols="30"
-              rows="3"
+              rows="2"
               className="inp form-control expText"
               onChange={(e) => {
                 setJobExp(e.target.value);
               }}
             ></textarea>
             <br />
+            {jobstate && (
+              <div className="badge-container d-flex flex-wrap">
+                <Badge list={jobStore} deleteItem={setJobStore} />
+              </div>
+            )}
             <button className="btn addbtn" onClick={handleForm}>
               Add Experience
             </button>

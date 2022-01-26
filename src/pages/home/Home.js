@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Default from "../../comp/Templates/Default";
 import Sidebar from "../../comp/Sidebar/Sidebar";
 
@@ -19,7 +19,7 @@ function Home() {
           </div>
         </div>
         <div className="templates-container">
-          <Default /> 
+          <Default />
         </div>
       </div>
     </div>

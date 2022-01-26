@@ -7,8 +7,6 @@ export default DataContext;
 export function DataContextProvider({ children }) {
   const [mainStore, setMainStore] = useState([]);
 
-  let storeObject = {};
-
   // user info
   const [fullname, setFullname] = useState("");
   const [jobtype, setJobType] = useState("");
@@ -23,7 +21,7 @@ export function DataContextProvider({ children }) {
   const [jobLocation, setJobLocation] = useState("");
   const [jobtitle, setJobTitle] = useState("");
   const [jobexp, setJobExp] = useState("");
-  const [jobStore, setJobStore] = useState(null);
+  const [jobStore, setJobStore] = useState([]);
   // education
   const [eduYear, setEduYear] = useState("");
   const [eduName, setEducationName] = useState("");
