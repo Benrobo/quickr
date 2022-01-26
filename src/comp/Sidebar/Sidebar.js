@@ -47,8 +47,10 @@ function Sidebar() {
   } else if (steps === 7) {
     elements = <ProSkills nextStepFunc={nextStep} prevStep={prevStep} />;
   } else if (steps === 8) {
-    elements = <SocialLinks nextStepFunc={nextStep} prevStep={prevStep} />;
+    elements = <PersonalSkills nextStepFunc={nextStep} prevStep={prevStep} />;
   } else if (steps === 9) {
+    elements = <SocialLinks nextStepFunc={nextStep} prevStep={prevStep} />;
+  } else if (steps === 10) {
     elements = <SidebarStyles nextStepFunc={nextStep} prevStep={prevStep} />;
   } else {
     elements = <UserInfo nextStepFunc={nextStep} prevStep={prevStep} />;

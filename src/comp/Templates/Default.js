@@ -33,6 +33,7 @@ function Default() {
     eduStore,
     hobbies,
     quotes,
+    skillStore,
   } = useContext(DataContext);
 
   useEffect(() => {
@@ -237,14 +238,21 @@ function Default() {
             <h4>PRO SKILLS</h4>
             <br />
             <div className="skills-cont">
-              {[1, 2, 3, 4].map((i) => {
-                return (
-                  <div className="skills-card" key={i}>
-                    <span>Java</span>
-                    <ProgressBar completed={10 * i} />
-                  </div>
-                );
-              })}
+              {skillStore.length > 0 ? (
+                skillStore.map((list, i) => {
+                  return (
+                    <div className="skills-card" key={list.id}>
+                      <span>{list.name}</span>
+                      <ProgressBar completed={list.level} />
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="skills-card">
+                  <span>Python</span>
+                  <ProgressBar completed={50} />
+                </div>
+              )}
             </div>
           </div>
           {/* Personal Skills */}

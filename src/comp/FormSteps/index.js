@@ -540,6 +540,48 @@ export function Quotes({ nextStepFunc, prevStep }) {
 }
 
 export function ProSkills({ nextStepFunc, prevStep }) {
+  const {
+    skillname,
+    skillLevel,
+    skillStore,
+    setSkillname,
+    setSkillLevel,
+    setSkillStore,
+  } = useContext(DataContext);
+
+  const [nextState, setNextState] = useState(false);
+  let skillMemory = {};
+
+  const genId = () => {
+    let char = "ABCDefghi09546".split("");
+    let str = "";
+    for (let i = 0; i < 5 + 1; i++) {
+      const rand = Math.floor(Math.random() * char.length);
+
+      str += char[rand];
+    }
+    return str;
+  };
+
+  function handleForm() {
+    // validate
+    if (skillname === "") {
+      return notif.error("skill name cant be empty");
+    }
+    if (skillLevel === "") {
+      return notif.error("skill name cant be empty");
+    }
+
+    skillMemory = {
+      id: genId(),
+      name: skillname,
+      level: skillLevel,
+    };
+
+    setSkillStore([...skillStore, skillMemory]);
+    setNextState(true);
+  }
+
   return (
     <div className="step-form-cont step1">
       <br />
@@ -553,19 +595,28 @@ export function ProSkills({ nextStepFunc, prevStep }) {
               placeholder="rate: 1-100"
               className="inp form-control"
               min={1}
-              max={100}
+              max={3}
               step={1}
-              maxLength="3"
+              maxLength={3}
               minLength={1}
+              defaultValue={skillLevel}
+              onChange={(e) => setSkillLevel(e.target.value)}
             />
             <input
               type="text"
               placeholder="Skill Name"
               className="inp form-control"
               maxLength={150}
+              defaultValue={skillname}
+              onChange={(e) => setSkillname(e.target.value)}
             />
             <br />
-            <button className="btn addbtn">Add Pro Skill</button>
+            <div className="badge-container d-flex flex-wrap">
+              <Badge list={skillStore} deleteItem={setSkillStore} />
+            </div>
+            <button className="btn addbtn" onClick={handleForm}>
+              Add Pro Skill
+            </button>
           </div>
           <div className="action-cont">
             <button className="btn back-btn" onClick={prevStep}>

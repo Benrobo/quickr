@@ -34,7 +34,6 @@ export function DataContextProvider({ children }) {
   // pro skills
   const [skillname, setSkillname] = useState("");
   const [skillLevel, setSkillLevel] = useState(0);
-  const [skillObj, setSkillObj] = useState({});
   const [skillStore, setSkillStore] = useState([]);
   // personal skill
   const [personalSKill, setPersonalSKill] = useState("");
@@ -62,7 +61,6 @@ export function DataContextProvider({ children }) {
         quotes,
         skillname,
         skillLevel,
-        skillObj,
         skillStore,
         personalSKill,
         setPhoneType,
@@ -76,7 +74,6 @@ export function DataContextProvider({ children }) {
         setQuotes,
         setSkillname,
         setSkillLevel,
-        setSkillObj,
         setSkillStore,
         setPersonalSKill,
         setTempImage,
