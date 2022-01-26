@@ -31,6 +31,8 @@ function Default() {
     address,
     jobStore,
     eduStore,
+    hobbies,
+    quotes,
   } = useContext(DataContext);
 
   useEffect(() => {
@@ -165,7 +167,6 @@ function Default() {
                       <div className="t">
                         <h5>{list.title}</h5>
                       </div>
-                      <br />
                       <div className="b">
                         <span>{list.experience}</span>
                       </div>
@@ -201,13 +202,16 @@ function Default() {
               <span className="hobbies-exp">Hobbies & Experience</span>
             </div>
             <div className="body">
-              <span>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.? Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                voluptates laborum laboriosam, blanditiis facere quibusdam
-                quaerat, quae ab ratione eveniet dolorem quos velit suscipit
-                odio amet officiis aut expedita quasi!
-              </span>
+              {hobbies === "" ? (
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Corrupti, quia.
+                </span>
+              ) : (
+                <div className="mounted">
+                  <span>{hobbies}</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -217,10 +221,15 @@ function Default() {
             <HiLightBulb className="icon" />
             <br />
             <div className="body">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatum in dicta repellat molestiae ad provident qui. Dicta
-              laboriosam minus tempora inventore deleniti vel, numquam
-              cupiditate nulla sunt quia enim illo!
+              {quotes == "" ? (
+                <>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Debitis quae ipsa, porro harum quia tempore itaque nulla
+                  laborum atque minus!
+                </>
+              ) : (
+                quotes
+              )}
             </div>
           </div>
           {/* pro-skills */}

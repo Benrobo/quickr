@@ -343,6 +343,7 @@ export function Education({ nextStepFunc, prevStep }) {
     setEduStore,
   } = useContext(DataContext);
 
+  const [nextState, setNextState] = useState(false);
   let eduMemory = {};
 
   const genId = () => {
@@ -376,7 +377,7 @@ export function Education({ nextStepFunc, prevStep }) {
     };
 
     setEduStore([...eduStore, eduMemory]);
-    console.log(eduStore);
+    setNextState(true);
   }
 
   return (
@@ -432,7 +433,15 @@ export function Education({ nextStepFunc, prevStep }) {
             <button className="btn back-btn" onClick={prevStep}>
               Back
             </button>
-            <button className="btn next-btn" onClick={nextStepFunc}>
+            <button
+              className="btn next-btn"
+              onClick={() => {
+                // if (nextState === false) {
+                //   return notif.error("you forgot to add the details");
+                // }
+                nextStepFunc();
+              }}
+            >
               Next
             </button>
           </div>
@@ -443,6 +452,8 @@ export function Education({ nextStepFunc, prevStep }) {
 }
 
 export function Hobbies({ nextStepFunc, prevStep }) {
+  const { hobbies, setHobbies } = useContext(DataContext);
+
   return (
     <div className="step-form-cont step1">
       <br />
@@ -457,15 +468,24 @@ export function Hobbies({ nextStepFunc, prevStep }) {
               maxLength={300}
               className="inp form-control expText"
               placeholder="Add your hobbies and interest"
+              defaultValue={hobbies}
+              onChange={(e) => setHobbies(e.target.value)}
             ></textarea>
             <br />
-            <button className="btn addbtn">Add Hobbies</button>
           </div>
           <div className="action-cont">
             <button className="btn back-btn" onClick={prevStep}>
               Back
             </button>
-            <button className="btn next-btn" onClick={nextStepFunc}>
+            <button
+              className="btn next-btn"
+              onClick={() => {
+                if (hobbies === "") {
+                  return notif.error("input cant be empty");
+                }
+                nextStepFunc();
+              }}
+            >
               Next
             </button>
           </div>
@@ -476,6 +496,8 @@ export function Hobbies({ nextStepFunc, prevStep }) {
 }
 
 export function Quotes({ nextStepFunc, prevStep }) {
+  const { quotes, setQuotes } = useContext(DataContext);
+
   return (
     <div className="step-form-cont step1">
       <br />
@@ -490,15 +512,24 @@ export function Quotes({ nextStepFunc, prevStep }) {
               maxLength={300}
               className="inp form-control expText"
               placeholder="Add Qotes"
+              defaultValue={quotes}
+              onChange={(e) => setQuotes(e.target.value)}
             ></textarea>
             <br />
-            <button className="btn addbtn">Add Quotes</button>
           </div>
           <div className="action-cont">
             <button className="btn back-btn" onClick={prevStep}>
               Back
             </button>
-            <button className="btn next-btn" onClick={nextStepFunc}>
+            <button
+              className="btn next-btn"
+              onClick={() => {
+                if (quotes === "") {
+                  return notif.error("inputs cant be empty");
+                }
+                nextStepFunc();
+              }}
+            >
               Next
             </button>
           </div>
