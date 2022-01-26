@@ -1,6 +1,7 @@
 # Quickr
 
 Generate a unique resume for your next interview.
+<br />
 [![Watch on GitHub](https://img.shields.io/github/watchers/benrobo/quickr.svg?style=social)](https://github.com/benrobo/quickr/watchers)
 [![Star on GitHub](https://img.shields.io/github/stars/benrobo/quickr.svg?style=social)](https://github.com/benrobo/quickr/stargazers)
 [![Tweet](https://img.shields.io/twitter/url/https/github.com/benrobo/quickr.svg?style=social)](https://twitter.com/intent/tweet?text=Check%20out%20quickr!%20%E2%9C%A8%20An%20accessible,%20open-source%20markdown%20editor%20for%20any%20user%20E2%9C%A8%20https://github.com/benrobo/quickr%20%F0%9F%A4%97)
