@@ -13,8 +13,14 @@ const notif = new Notification(3000);
 export function UserInfo({ nextStepFunc }) {
   const [image, setImage] = useState("");
 
-  const { fullname, jobtype, setTempImage, setJobType, setFullname } =
-    useContext(DataContext);
+  const {
+    fullname,
+    jobtype,
+    imageTemp,
+    setTempImage,
+    setJobType,
+    setFullname,
+  } = useContext(DataContext);
 
   function handleImage() {
     let fileInput = document.querySelector(".file");
@@ -43,9 +49,9 @@ export function UserInfo({ nextStepFunc }) {
         <div className="top">
           <img
             src={
-              image === ""
+              imageTemp === ""
                 ? "https://avatars.dicebear.com/api/initials/john.svg"
-                : image
+                : imageTemp
             }
             alt=""
             className="img-fluid"
@@ -88,7 +94,7 @@ export function UserInfo({ nextStepFunc }) {
                 if (fullname === "" || jobtype === "") {
                   return notif.error("pls fill in all fields");
                 }
-                if (image === "") {
+                if (imageTemp === "") {
                   return notif.error("Image isnt selected");
                 }
                 nextStepFunc();
@@ -318,7 +324,6 @@ export function WorkExp({ nextStepFunc, prevStep }) {
             <button
               className="btn next-btn"
               onClick={() => {
-                handleForm();
                 nextStepFunc();
               }}
             >
@@ -688,7 +693,7 @@ export function PersonalSkills({ nextStepFunc, prevStep }) {
 
 export function SocialLinks({ nextStepFunc, prevStep }) {
   const { socials, setSocials } = useContext(DataContext);
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState("https://twitter.com/AlumonaBenaiah");
 
   function validUrl(text) {
     try {
@@ -755,7 +760,15 @@ export function SocialLinks({ nextStepFunc, prevStep }) {
             <button className="btn back-btn" onClick={prevStep}>
               Back
             </button>
-            <button className="btn next-btn" onClick={nextStepFunc}>
+            <button
+              className="btn next-btn"
+              onClick={() => {
+                if (url === "") {
+                  return notif.error("provide at least one url");
+                }
+                nextStepFunc();
+              }}
+            >
               Next
             </button>
           </div>
@@ -766,6 +779,8 @@ export function SocialLinks({ nextStepFunc, prevStep }) {
 }
 
 export function SidebarStyles({ nextStepFunc, prevStep }) {
+  const { saveData } = useContext(DataContext);
+
   return (
     <div className="step-form-cont step1">
       <br />
@@ -785,7 +800,14 @@ export function SidebarStyles({ nextStepFunc, prevStep }) {
             <button className="btn back-btn" onClick={prevStep}>
               Back
             </button>
-            <button className="btn next-btn" onClick={nextStepFunc}>
+            <button
+              className="btn next-btn"
+              onClick={() => {
+                saveData();
+                notif.success("All Data has been saved successfully");
+                nextStepFunc();
+              }}
+            >
               Save
             </button>
           </div>

@@ -23,7 +23,7 @@ function Sidebar() {
   let allSteps = document.querySelectorAll(".step-form-cont");
 
   function nextStep() {
-    setSteps((steps += 1));
+    setSteps(steps > 9 ? steps === 1 : (steps += 1));
   }
 
   function prevStep() {

@@ -1,11 +1,12 @@
 import React, { createContext, useState, useEffect } from "react";
+import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
 
 const DataContext = createContext();
 
 export default DataContext;
 
 export function DataContextProvider({ children }) {
-  const [mainStore, setMainStore] = useState([]);
+  let LocalData;
 
   // user info
   const [fullname, setFullname] = useState("");
@@ -41,6 +42,38 @@ export function DataContextProvider({ children }) {
 
   // socials
   const [socials, setSocials] = useState([]);
+
+  // save all inputs data to localstorage
+  function saveData() {
+    LocalData = {
+      userinfo: {
+        fullname,
+        imageTemp,
+        phoneType,
+        phonenumber,
+        email,
+        address,
+      },
+      workData: jobStore,
+      educationData: eduStore,
+      hobbies,
+      quotes,
+      skillData: skillStore,
+      personalSkillData: pskillStore,
+      socials,
+    };
+
+    window.localStorage.setItem("quickr-data", JSON.stringify(LocalData));
+  }
+
+  // download resume as pdf
+  function downloadAsPdf(DomNode) {
+    savePDF(DomNode, {
+      paperSize: "auto",
+      margin: 40,
+      fileName: `quickr-${new Date().getDay()}`,
+    });
+  }
 
   return (
     <DataContext.Provider
@@ -94,6 +127,8 @@ export function DataContextProvider({ children }) {
         setEducationName,
         setEduExp,
         setSocials,
+        saveData,
+        downloadAsPdf,
       }}
     >
       {children}

@@ -22,6 +22,7 @@ function Default() {
   const [scale, setSCale] = useState(1);
   const [zoomState, setZoomState] = useState("in");
   const {
+    tref,
     fullname,
     jobtype,
     imageTemp,
@@ -50,7 +51,7 @@ function Default() {
 
   return (
     <>
-      <div className="template-view mt-5">
+      <div className="template-view mt-5" ref={tref} data-template-view>
         <div className="left-cont">
           {/* info */}
           <div className="top">
@@ -75,7 +76,7 @@ function Default() {
               <div className="b">
                 <ul className="list">
                   <li>
-                    <HiPhone className="icon" />
+                    <HiPhone className="icon" style={iconsStyle.Sicon} />
                     <span className="phone">
                       {phonenumber === "" || phoneType === ""
                         ? "+234 - 07084506679"
@@ -83,13 +84,16 @@ function Default() {
                     </span>
                   </li>
                   <li>
-                    <HiMail className="icon" />
+                    <HiMail className="icon" style={iconsStyle.Sicon} />
                     <span className="mail">
                       {email === "" ? "johndoe@mail.com" : email}
                     </span>
                   </li>
                   <li>
-                    <HiLocationMarker className="icon" />
+                    <HiLocationMarker
+                      className="icon"
+                      style={iconsStyle.Sicon}
+                    />
                     <span className="location">
                       {address === ""
                         ? "22, Alfred Str, United State"
@@ -103,7 +107,7 @@ function Default() {
           {/* work exp */}
           <div className="work-exp">
             <div className="head">
-              <HiBriefcase className="icon" />
+              <HiBriefcase className="icon" style={iconsStyle.Licon} />
               <span className="work-exp">Work Experience</span>
             </div>
             {jobStore !== undefined && jobStore.length > 0 ? (
@@ -113,7 +117,7 @@ function Default() {
                     {/* <div className="work-cards"> */}
                     <div className="l">
                       <span className="year">{list.year}</span>
-                      <HiBadgeCheck className="icon" />
+                      <HiBadgeCheck className="icon" style={iconsStyle.Licon} />
                     </div>
                     <div className="r">
                       <div className="t">
@@ -133,7 +137,7 @@ function Default() {
               <div className="cards-container">
                 <div className="l">
                   <span className="year">2015</span>
-                  <HiBadgeCheck className="icon" />
+                  <HiBadgeCheck className="icon" style={iconsStyle.Licon} />
                 </div>
                 <div className="r">
                   <div className="t">
@@ -155,7 +159,7 @@ function Default() {
           {/* education */}
           <div className="education-exp">
             <div className="head">
-              <HiBriefcase className="icon" />
+              <HiBriefcase className="icon" style={iconsStyle.Licon} />
               <span className="education-exp">Education</span>
             </div>
             {eduStore !== undefined && eduStore.length > 0 ? (
@@ -164,7 +168,7 @@ function Default() {
                   <div className="cards-container">
                     <div className="l">
                       <span className="year">{list.year}</span>
-                      <HiBadgeCheck className="icon" />
+                      <HiBadgeCheck className="icon" style={iconsStyle.Licon} />
                     </div>
                     <div className="r">
                       <div className="t">
@@ -181,7 +185,7 @@ function Default() {
               <div className="cards-container">
                 <div className="l">
                   <span className="year">2015</span>
-                  <HiBadgeCheck className="icon" />
+                  <HiBadgeCheck className="icon" style={iconsStyle.Licon} />
                 </div>
                 <div className="r">
                   <div className="t">
@@ -201,7 +205,7 @@ function Default() {
           {/* Hobbies */}
           <div className="hobbies">
             <div className="head">
-              <HiBriefcase className="icon" />
+              <HiBriefcase className="icon" style={iconsStyle.Licon} />
               <span className="hobbies-exp">Hobbies & Experience</span>
             </div>
             <div className="body">
@@ -219,97 +223,98 @@ function Default() {
           </div>
         </div>
         <div className="right-cont">
-          {/* quotes */}
-          <div className="quotes-cont">
-            <HiLightBulb className="icon" />
-            <br />
-            <div className="body">
-              {quotes == "" ? (
-                <>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Debitis quae ipsa, porro harum quia tempore itaque nulla
-                  laborum atque minus!
-                </>
-              ) : (
-                quotes
-              )}
+          <div className="cont">
+            {/* quotes */}
+            <div className="quotes-cont box">
+              <HiLightBulb className="icon" style={iconsStyle.Licon} />
+              <br />
+              <div className="body">
+                {quotes == "" ? (
+                  <>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Debitis quae ipsa, porro harum quia tempore itaque nulla
+                    laborum atque minus!
+                  </>
+                ) : (
+                  quotes
+                )}
+              </div>
             </div>
-          </div>
-          {/* pro-skills */}
-          <div className="pro-skills-cont">
-            <h4>PRO SKILLS</h4>
-            <br />
-            <div className="skills-cont">
-              {skillStore.length > 0 ? (
-                skillStore.map((list, i) => {
-                  return (
-                    <div className="skills-card" key={list.id}>
-                      <span>{list.name}</span>
-                      <ProgressBar completed={list.level} />
-                    </div>
-                  );
-                })
-              ) : (
-                <div className="skills-card">
-                  <span>Python</span>
-                  <ProgressBar completed={50} />
-                </div>
-              )}
+            {/* pro-skills */}
+            <div className="pro-skills-cont box">
+              <h4>PRO SKILLS</h4>
+              <div className="skills-cont">
+                {skillStore.length > 0 ? (
+                  skillStore.map((list, i) => {
+                    return (
+                      <div className="skills-card" key={list.id}>
+                        <span>{list.name}</span>
+                        <ProgressBar completed={list.level} />
+                      </div>
+                    );
+                  })
+                ) : (
+                  <div className="skills-card">
+                    <span>Python</span>
+                    <ProgressBar completed={50} />
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-          {/* Personal Skills */}
-          <div className="personal-skills">
-            <div className="head">
-              <h5>Personal Skills</h5>
+            {/* Personal Skills */}
+            <div className="personal-skills box">
+              <div className="head">
+                <h5>Personal Skills</h5>
+              </div>
+              <div className="p-skills-cont">
+                {pskillStore.length > 0 ? (
+                  pskillStore.map((skill, i) => {
+                    return (
+                      <span className="skill" key={i}>
+                        {skill}
+                      </span>
+                    );
+                  })
+                ) : (
+                  <span className="skill">Team</span>
+                )}
+              </div>
             </div>
-            <div className="p-skills-cont">
-              {pskillStore.length > 0 ? (
-                pskillStore.map((skill, i) => {
-                  return (
-                    <span className="skill" key={i}>
-                      {skill}
-                    </span>
-                  );
-                })
-              ) : (
-                <span className="skill">Team</span>
-              )}
+            {/* socials */}
+            <div className="socials box">
+              <div className="head">
+                <h5>Socials</h5>
+              </div>
+              <ul className="list">
+                {socials.length > 0 ? (
+                  socials.map((list, i) => {
+                    return (
+                      <li key={list.id}>
+                        <HiGlobeAlt className="icon" style={iconsStyle.Sicon} />
+                        <a
+                          href={list.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {list.url}
+                        </a>
+                      </li>
+                    );
+                  })
+                ) : (
+                  <li>
+                    <HiGlobeAlt className="icon" style={iconsStyle.Sicon} />
+                    <a
+                      href="http://facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      http://facebook.com
+                    </a>
+                  </li>
+                )}
+              </ul>
             </div>
-          </div>
-          {/* socials */}
-          <div className="socials">
-            <div className="head">
-              <h5>Socials</h5>
-            </div>
-            <ul className="list">
-              {socials.length > 0 ? (
-                socials.map((list, i) => {
-                  return (
-                    <li key={list.id}>
-                      <HiGlobeAlt className="icon" />
-                      <a
-                        href={list.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {list.url}
-                      </a>
-                    </li>
-                  );
-                })
-              ) : (
-                <li>
-                  <HiGlobeAlt className="icon" />
-                  <a
-                    href="http://facebook.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    http://facebook.com
-                  </a>
-                </li>
-              )}
-            </ul>
           </div>
         </div>
       </div>
@@ -320,3 +325,14 @@ function Default() {
 }
 
 export default Default;
+
+// this styles is meant when genrating pdf
+
+const iconsStyle = {
+  Licon: {
+    color: "#ffd325",
+  },
+  Sicon: {
+    color: "#e9e9e9",
+  },
+};
