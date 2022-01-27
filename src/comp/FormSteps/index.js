@@ -11,8 +11,6 @@ import Badge from "./badge";
 const notif = new Notification(3000);
 
 export function UserInfo({ nextStepFunc }) {
-  const [image, setImage] = useState("");
-
   const {
     fullname,
     jobtype,
@@ -32,12 +30,10 @@ export function UserInfo({ nextStepFunc }) {
       let type = fileInput.files[0].type.split("/")[1];
 
       if (imageExt.includes(type) === false) {
-        setImage("");
         notif.error("Image type selected is invalid");
         return;
       }
       let url = URL.createObjectURL(fileInput.files[0]);
-      setImage(url);
       setTempImage(url);
     });
   }
@@ -85,7 +81,6 @@ export function UserInfo({ nextStepFunc }) {
               className="inp form-control"
               value={jobtype ? jobtype : ""}
             />
-            {/* <button className="btn addbtn">Add Info</button> */}
           </div>
           <div className="action-cont">
             <button

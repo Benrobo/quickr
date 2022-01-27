@@ -1,5 +1,8 @@
 ## Quickr
 
+<p align="left">
+<img src="https://raw.githubusercontent.com/Benrobo/quickr/main/src/logo.png">
+</p>
 ##### <code>v1.0.0</code>
 
 ![GitHub last commit (main)](https://img.shields.io/github/last-commit/benrobo/quickr/main?style=for-the-badge)

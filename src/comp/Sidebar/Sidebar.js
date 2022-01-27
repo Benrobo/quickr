@@ -63,8 +63,8 @@ function Sidebar() {
   return (
     <div className="sidebar-cont">
       <div className="top-head">
-        <HiDocumentDuplicate className="icon logo" />
-        {/* <img src={logo} alt="" className="img-fluid logo" /> */}
+        {/* <HiDocumentDuplicate className="icon logo" /> */}
+        <img src={logo} alt="" className="img-fluid logo" />
         <span>Quickr</span>
       </div>
       {elements}

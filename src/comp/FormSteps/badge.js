@@ -7,9 +7,7 @@ function Badge({ list, deleteItem }) {
     let id = e.target.dataset.id;
 
     let newelm = list.filter((elm) => {
-      if (elm.id !== undefined) {
-        return elm.id !== id;
-      }
+      return elm.id !== id;
     });
     deleteItem([...newelm]);
   }
