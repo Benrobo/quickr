@@ -124,7 +124,6 @@ export function DataContextProvider({ children }) {
         setJobExp,
         setJobTitle,
         setEduYear,
-        setEducationName,
         setEduExp,
         setSocials,
         saveData,

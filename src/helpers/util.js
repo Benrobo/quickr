@@ -34,10 +34,3 @@ export class Notification {
     return notyf.dismissAll();
   }
 }
-
-class Error {
-  constructor(msg) {
-    this.msg = msg;
-    this.name = "Error";
-  }
-}
