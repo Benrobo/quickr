@@ -44,14 +44,20 @@ function Default() {
     } else {
       temp.style.transform = `scale(${scale})`;
     }
-    console.log(jobStore);
   }, [scale]);
 
-  //When a user type in name, it should automatically capitalize the first letter of each word
-  const fN = fullname.split(" ");
-  for (let i = 0; i < fN.length; i++) {
-    fN[i] = fN[i].charAt(0).toUpperCase() + fN[i].slice(1);
-    
+  function capitalizeFullname(text) {
+    if (fullname !== "") {
+      let fN = text.split(" ");
+
+      let fName = fN[0].charAt(0).toUpperCase() + fN[0].slice(1);
+      let lName =
+        fN[1] !== undefined
+          ? fN[1].charAt(0).toUpperCase() + fN[1].slice(1)
+          : "";
+      return { fName, lName };
+    }
+
   }
 
   return (
@@ -72,7 +78,10 @@ function Default() {
             <div className="info-cont">
               <div className="t">
                 <h5 className="name">
-                  {fullname === "" ? "John Doe" : fN.join(" ")}
+                  {fullname === ""
+                    ? "John Doe"
+                    : `${capitalizeFullname(fullname).fName}  
+                    ${capitalizeFullname(fullname).lName}`}
                 </h5>
                 <span className="job-type">
                   {jobtype === "" ? "Designer & Frontend Developer" : jobtype}
