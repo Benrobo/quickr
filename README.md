@@ -17,10 +17,6 @@ With quickr, you dont just generate resume. you generate `unique`, `slick`, `low
 
 <img src="https://media2.giphy.com/media/xT0xem7ZlZ2DOYqpG0/giphy.gif?cid=ecf05e47qxl8vifu3xkt2lco5ffuwgw9yr1jkin1lhjw70mz&rid=giphy.gif&ct=g">
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/Benrobo/quickr/main/readmeImg/resume.png" width="700" />
-</p>
-
 #### Development build is still in progress.
 
 <br />
