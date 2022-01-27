@@ -47,6 +47,13 @@ function Default() {
     console.log(jobStore);
   }, [scale]);
 
+  //When a user type in name, it should automatically capitalize the first letter of each word
+  const fN = fullname.split(" ");
+  for (let i = 0; i < fN.length; i++) {
+    fN[i] = fN[i].charAt(0).toUpperCase() + fN[i].slice(1);
+    
+  }
+
   return (
     <>
       <div className="template-view mt-5" ref={tref} data-template-view>
@@ -65,7 +72,7 @@ function Default() {
             <div className="info-cont">
               <div className="t">
                 <h5 className="name">
-                  {fullname === "" ? "John Doe" : fullname}
+                  {fullname === "" ? "John Doe" : fN.join(" ")}
                 </h5>
                 <span className="job-type">
                   {jobtype === "" ? "Designer & Frontend Developer" : jobtype}
