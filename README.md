@@ -15,7 +15,7 @@
 
 With quickr, you dont just generate resume. you generate `unique`, `slick`, `low contrast` and `satisfying` resume for your next software engineering, frontend engineering, product design `interview`.
 
-<img src="https://media2.giphy.com/media/xT0xem7ZlZ2DOYqpG0/giphy.gif?cid=ecf05e47qxl8vifu3xkt2lco5ffuwgw9yr1jkin1lhjw70mz&rid=giphy.gif&ct=g">
+<img src="https://media2.giphy.com/media/xT0xem7ZlZ2DOYqpG0/giphy.gif?cid=ecf05e47qxl8vifu3xkt2lco5ffuwgw9yr1jkin1lhjw70mz&rid=giphy.gif&ct=g" width="200">
 
 #### Development build is still in progress.
 
