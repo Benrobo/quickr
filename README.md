@@ -1,4 +1,4 @@
-# Quickr
+## Quickr
 
 Generate a unique resume for your next interview.
 
