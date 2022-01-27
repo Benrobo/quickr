@@ -7,8 +7,6 @@ import {
   HiBadgeCheck,
   HiLightBulb,
   HiGlobeAlt,
-  HiPlusSm,
-  HiMinusSm,
 } from "react-icons/hi";
 
 import ProgressBar from "../ProgressBar/ProgressBar";

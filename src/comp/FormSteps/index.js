@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
-import { HiUpload, HiChevronDown } from "react-icons/hi";
+import React, { useContext, useState } from "react";
+import { HiUpload } from "react-icons/hi";
 import code from "../../helpers/phonenumbers.json";
 
 import "./style.css";
@@ -185,13 +185,13 @@ export function Address({ nextStepFunc, prevStep }) {
               className="btn next-btn"
               onClick={() => {
                 console.log(phoneType);
-                if (phoneType == "") {
+                if (phoneType === "") {
                   return notif.error("country code is missing");
-                } else if (phonenumber == "") {
+                } else if (phonenumber === "") {
                   return notif.error("phonenumber cant be empty");
-                } else if (email == "") {
+                } else if (email === "") {
                   return notif.error("email cant be empty");
-                } else if (address == "") {
+                } else if (address === "") {
                   return notif.error("address cant be empty");
                 }
                 nextStepFunc();
@@ -348,7 +348,6 @@ export function Education({ nextStepFunc, prevStep }) {
     setEduStore,
   } = useContext(DataContext);
 
-  const [nextState, setNextState] = useState(false);
   let eduMemory = {};
 
   const genId = () => {
@@ -382,7 +381,6 @@ export function Education({ nextStepFunc, prevStep }) {
     };
 
     setEduStore([...eduStore, eduMemory]);
-    setNextState(true);
   }
 
   return (
@@ -554,7 +552,6 @@ export function ProSkills({ nextStepFunc, prevStep }) {
     setSkillStore,
   } = useContext(DataContext);
 
-  const [nextState, setNextState] = useState(false);
   let skillMemory = {};
 
   const genId = () => {
@@ -584,7 +581,6 @@ export function ProSkills({ nextStepFunc, prevStep }) {
     };
 
     setSkillStore([...skillStore, skillMemory]);
-    setNextState(true);
   }
 
   return (
