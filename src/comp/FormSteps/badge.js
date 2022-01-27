@@ -28,6 +28,7 @@ function Badge({ list, deleteItem }) {
                 </div>
               );
             }
+            return "";
           })
         : ""}
     </>

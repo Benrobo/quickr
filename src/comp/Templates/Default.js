@@ -227,7 +227,7 @@ function Default() {
               <HiLightBulb className="icon" style={iconsStyle.Licon} />
               <br />
               <div className="body">
-                {quotes == "" ? (
+                {quotes === "" ? (
                   <>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Debitis quae ipsa, porro harum quia tempore itaque nulla
