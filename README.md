@@ -9,10 +9,14 @@ Generate a unique resume for your next interview.
 ![GitHub watchers](https://img.shields.io/github/watchers/benrobo/quickr?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/benrobo/quickr?style=for-the-badge)
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/Benrobo/quickr/main/readmeImg/resume.png" />
+</p>
+
 #### Development build is still in progress.
 
+<br />
 <img src="https://raw.githubusercontent.com/Benrobo/quickr/main/readmeImg/quickr1.png" />
-
 <br />
 <br />
 
