@@ -111,9 +111,9 @@ function Default() {
               <span className="work-exp">Work Experience</span>
             </div>
             {jobStore !== undefined && jobStore.length > 0 ? (
-              jobStore.map((list) => {
+              jobStore.map((list, i) => {
                 return (
-                  <div className="cards-container">
+                  <div className="cards-container" key={i}>
                     {/* <div className="work-cards"> */}
                     <div className="l">
                       <span className="year">{list.year}</span>
@@ -165,7 +165,7 @@ function Default() {
             {eduStore !== undefined && eduStore.length > 0 ? (
               eduStore.map((list, i) => {
                 return (
-                  <div className="cards-container">
+                  <div className="cards-container" key={i}>
                     <div className="l">
                       <span className="year">{list.year}</span>
                       <HiBadgeCheck className="icon" style={iconsStyle.Licon} />

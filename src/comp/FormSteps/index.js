@@ -789,11 +789,19 @@ export function SidebarStyles({ nextStepFunc, prevStep }) {
           <div className="box box-1">
             <h3>Sidebar Styles</h3>
             <br />
-            <input type="color" className="inp colors" value={"#ff00ea"} />
+            <input
+              type="color"
+              className="inp colors"
+              defaultValue={"#ff00ea"}
+            />
             <br />
             <h3>Text Styles</h3>
             <br />
-            <input type="color" className="inp colors" value={"#ff0000"} />
+            <input
+              type="color"
+              className="inp colors"
+              defaultValue={"#ff0000"}
+            />
             <br />
           </div>
           <div className="action-cont">
