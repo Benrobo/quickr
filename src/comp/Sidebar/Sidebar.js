@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { HiDocumentDuplicate, HiUpload } from "react-icons/hi";
+// import { HiDocumentDuplicate, HiUpload } from "react-icons/hi";
 import {
   UserInfo,
   Address,
