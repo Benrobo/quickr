@@ -1,5 +1,7 @@
 ## Quickr
 
+##### <code>v1.0.0</code>
+
 Generate a unique resume for your next interview.
 
 ![GitHub last commit (main)](https://img.shields.io/github/last-commit/benrobo/quickr/main?style=for-the-badge)
@@ -23,6 +25,39 @@ Generate a unique resume for your next interview.
 <br />
 
 <img src="https://raw.githubusercontent.com/Benrobo/quickr/main/readmeImg/quickr2.png" />
+
+#### Running Locally
+
+To run quickr locally, follow the steps below.
+
+1. Clone the repo
+
+```sh
+    git clone https://github.com/Benrobo/quickr.git
+```
+
+2. Install All Avaialable Dependencies.
+
+```sh
+    npm install
+
+    #or
+
+    npm i
+
+```
+
+3. Start Local server
+
+```sh
+    npm start.
+```
+
+Youre ready to go.
+
+#### Note
+
+quickr is not available for mobile users yet. It still under development, so make sure you make use of this application on only PC or desktop not mobile.
 
 #### Contributing
 
