@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
+import { savePDF } from "@progress/kendo-react-pdf";
 
 const DataContext = createContext();
 
