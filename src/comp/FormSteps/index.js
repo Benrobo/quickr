@@ -689,7 +689,7 @@ export function SocialLinks({ nextStepFunc, prevStep }) {
   function validUrl(text) {
     try {
       let url = new URL(text);
-      return true;
+      return url.protocol ? true : false;
     } catch (err) {
       return false;
     }
