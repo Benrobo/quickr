@@ -15,7 +15,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/74625aec-8e40-4a56-95d4-af13566b829b/deploy-status)](https://app.netlify.com/sites/quickrr/deploys)
 
-### We know how frustrating it is when it comes to creating a resume. The stress of opening docs and start typing out all necessary details. SOmetime we prefer to use some free generator online, but after the whole process, you endup in a page asking for payment. Like !!who deos that!!.
+### We know how frustrating it is when it comes to creating a resume. The stress of opening docs and start typing out all necessary details. Sometime we prefer to use some free generator online, but after the whole process, you endup in a page asking for payment. Like !!who deos that!!.
 
 With quickr, you dont just generate resume. you generate `unique`, `slick`, `low contrast` and `satisfying` resume for your next software engineering, frontend engineering, product design `interview`.
 
@@ -54,10 +54,10 @@ To run quickr locally, follow the steps below.
 3. Start Local server
 
 ```sh
-    npm start.
+    npm start
 ```
 
-Youre ready to go.
+You are ready to go.
 
 #### Note
 
@@ -71,7 +71,7 @@ quickr is open for contribution. simply follow the guidelines found at [Contribu
 
 ##### [@benrobo ✨](https://github.com/benrobo)
 
-#### Creatd with
+#### Created with
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
